@@ -1,0 +1,311 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MainMaster.master.cs" Inherits="OrganizationalMaturityAssessment.Admin.MainMaster" %>
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" class="app">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>پنل مدیریتی سایت ورانگر</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta name="description" content="پنل مدیریتی سایت ورانگر" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link href="/css/bootstrap-rtl.css" rel="stylesheet" />
+    <link href="/css/app.v2.css" rel="stylesheet" />
+    <link href="/css/font.css" rel="stylesheet" />
+    <link href="/js/AdminJS/calendar/bootstrap_calendar.css" rel="stylesheet" />
+    <script src="/js/jquery-1.9.1.min.js"></script>
+    <link href="/css/admin-font-awesome.css" rel="stylesheet" />
+
+    <!--[if lt IE 9]> <script src="js/ie/html5shiv.js" cache="false"></script> <script src="js/ie/respond.min.js" cache="false"></script> <script src="js/ie/excanvas.js" cache="false"></script> <![endif]-->
+    <script type="text/javascript">
+
+        function AddCurrent(currentMenu) {
+            $('li').removeClass('active');
+            $(currentMenu).addClass('active');
+        }
+
+
+    </script>
+    <style type="text/css">
+        .greenBackMenuNumbs {
+            background-color: #8ec165 !important;
+        }
+
+        .redBackMenuNumbs {
+            background-color: #fb6b5b !important;
+        }
+    </style>
+    <link href="/css/AdminStyle.css" rel="stylesheet" />
+    <script src="/js/PersianDatePicker.min.js"></script>
+    <link href="/css/PersianDatePicker.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="vbox">
+
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs" style="height: 52px;">
+            <div class="navbar-header aside-md">
+                <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav"><i class="fa fa-bars"></i></a><a href="../Default.aspx" class="navbar-brand">
+                    <img src="/images/vlogo1.png" class="m-r-sm">
+                </a><a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"><i class="fa fa-cog"></i></a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right hidden-xs nav-user">
+                <li class="hidden-xs"><a href="#" class="dropdown-toggle dk" data-toggle="dropdown"><i class="fa fa-bell"></i><span class="badge badge-sm up bg-danger m-l-n-sm count">
+                    <asp:Label ID="lblCounttotal" runat="server" Text="0"></asp:Label></span> </a>
+                    <section class="dropdown-menu aside-xl">
+                        <section class="panel bg-white">
+                            <header class="panel-heading b-light bg-light">
+                                <strong>شما <span class="count">
+                                    <asp:Label ID="lblNotification" runat="server" Text="0"></asp:Label></span> اعلان دارید</strong>
+                            </header>
+
+                            <footer class="panel-footer text-sm">
+                            </footer>
+                        </section>
+                    </section>
+                </li>
+
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="thumb-sm avatar pull-left">
+                    <img src="/images/avatar_default.jpg" />
+                </span>
+                    <asp:Label ID="lblUserName" runat="server" Text="مدیر سایت"></asp:Label><b class="caret"></b></a>
+                    <ul class="dropdown-menu animated fadeInRight">
+                        <span class="arrow top"></span>
+                        <li><a href="AdminEditProfile.aspx">پروفایل</a> </li>
+                        <li><a href="#">Help</a> </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/admin/Logout.aspx">خروج</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <section>
+            <section class="hbox stretch">
+                <!-- .aside -->
+                <aside class="bg-dark lter aside-md hidden-print nav-xs-right" id="nav">
+                    <section class="vbox">
+
+                        <section class="w-f scrollable">
+                            <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
+                                <!-- nav -->
+                                <nav class="nav-primary hidden-xs">
+                                    <ul class="nav">
+
+                                        <li id="default"><a href="Default.aspx"><i class="fa fa-home icon"><b class="bg-danger"></b></i><span>صفحه اصلی </span></a></li>
+
+
+
+                                        <li id="pro">
+                                            <a href="#"><i class="fa fa-users icon">
+                                                    <b class="bg-warning"></b>
+                                                </i><span class="pull-right">
+<i class="fa fa-angle-down text"></i>
+                                                    <i class="fa fa-angle-up text-active"></i></span>
+                                                
+                                                <span>محصولات</span>
+                                        </a>
+                                            <ul class="nav lt">
+                                                <li><a href="ProductGroupSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت گروه محصولات</span>
+                                                </a></li>
+                                                <li><a href="ProductSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت محصولات</span>
+                                                </a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li id="cus"><a href="#"><i class="fa fa-users icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span><span>مشتریان</span><asp:Label ID="Label2" runat="server" CssClass="badge" Text=""></asp:Label>
+                                        </a>
+                                            <ul class="nav lt">
+                                                <li><a href="CustomerGroupSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت گروه مشتریان</span>
+                                                </a></li>
+                                                <li><a href="CustomerSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت مشتریان</span>
+                                                </a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li id="sol"><a href="#"><i class="fa fa-users icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span><span>راهکارها</span><asp:Label ID="Label3" runat="server" CssClass="badge" Text=""></asp:Label>
+                                        </a>
+                                            <ul class="nav lt">
+                                                <li><a href="SolutionGroupSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت گروه راهکارها</span>
+                                                </a></li>
+                                                <li><a href="SolutionSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت راهکارها</span>
+                                                </a></li>
+                                            </ul>
+                                        </li>
+                                        <li id="ser"><a href="#"><i class="fa fa-users icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span><span>خدمات</span><asp:Label ID="Label4" runat="server" CssClass="badge" Text=""></asp:Label>
+                                        </a>
+                                            <ul class="nav lt">
+                                                <li><a href="ServiceSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت گروه خدمات</span>
+                                                </a></li>
+                                                <li><a href="ServiceStepsSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت خدمات</span>
+                                                </a></li>
+                                            </ul>
+                                        </li>
+                                <li id="ser"><a href="#"><i class="fa fa-users icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span><span>مشتریان</span>
+                                        </a>
+                                            <ul class="nav lt">
+                                                <li><a href="CustomerGroupSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت گروه مشتریان</span>
+                                                </a></li>
+                                                <li><a href="CustomerSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت مشتریان</span>
+                                                </a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li id="blo"><a href="#"><i class="fa fa-users icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span><span>اخبار</span><asp:Label ID="Label5" runat="server" CssClass="badge" Text=""></asp:Label>
+                                        </a>
+                                            <ul class="nav lt">
+                                                <li><a href="BlogGroupsSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت گروه اخبار</span>
+                                                </a></li>
+                                                <li><a href="BlogSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت اخبار ها</span>
+                                                </a></li>
+                                                <li><a href="commentSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت نظرات اخبار</span>
+                                                </a></li>
+
+                                            </ul>
+                                        </li>
+                                        <li id="txt"><a href="#"><i class="fa fa-users icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span><span>مدیریت متن های سایت</span><asp:Label ID="Label6" runat="server" CssClass="badge" Text=""></asp:Label>
+                                        </a>
+                                            <ul class="nav lt">
+                                                <li><a href="textsetting.aspx?groupid=1"><i class="fa fa-angle-right"></i><span>متن صفحه اصلی بخش 2</span>
+                                                </a></li>
+                                                <li><a href="textsetting.aspx?id=5"><i class="fa fa-angle-right"></i><span>متن صفحه اصلی بخش 4</span>
+                                                </a></li>
+                                                <li><a href="textsetting.aspx?id=6"><i class="fa fa-angle-right"></i><span>متن صفحه اصلی بخش 7</span>
+                                                </a></li>
+                                                <li><a href="textsetting.aspx?id=7"><i class="fa fa-angle-right"></i><span>متن صفحه درباره ما بخش 1</span>
+                                                </a></li>
+                                                <li><a href="textsetting.aspx?id=8"><i class="fa fa-angle-right"></i><span>متن صفحه درباره ما بخش 3</span>
+                                                </a></li>
+                                                      <li><a href="textsetting.aspx?id=9"><i class="fa fa-angle-right"></i><span>متن صفحه پیوستن به ما بخش 1</span>
+                                                </a></li>
+                                                  <li><a href="textsetting.aspx?id=10"><i class="fa fa-angle-right"></i><span>متن صفحه پیوستن به ما بخش 3</span>
+                                                </a></li>
+                                                  <li><a href="textsetting.aspx?id=11"><i class="fa fa-angle-right"></i><span>متن صفحه پیوستن به ما بخش 4</span>
+                                                </a></li>
+                                                    <li><a href="textsetting.aspx?groupid=6"><i class="fa fa-angle-right"></i><span>متن صفحه ورانگر در یک نگاه</span>
+                                                </a></li>
+                                                
+                                                   <li><asp:HyperLink ID="hlSecondBrand" runat="server"><i class="fa fa-angle-right"></i><span>متن توضیحات برند دوم</span></asp:HyperLink>
+                                                   </li> 
+                                                
+                                                <li><a href="textsetting.aspx?id=36"><i class="fa fa-angle-right"></i><span>متن صفحه کارآموزی</span>
+                                                </a></li>
+                                            </ul>
+                                        </li>
+                                            <li id="txt"><a href="#"><i class="fa fa-users icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span><span>مدیریت تصاویر سایت</span><asp:Label ID="Label7" runat="server" CssClass="badge" Text=""></asp:Label>
+                                        </a>
+                                            <ul class="nav lt">
+                                                <li><a href="ImageSetting.aspx?groupid=1"><i class="fa fa-angle-right"></i><span>تصاویر صفحه درباره ما بخش 1</span>
+                                                </a></li>
+                                                 <li><a href="ImageSetting.aspx?id=4"><i class="fa fa-angle-right"></i><span>تصویر صفحه درباره ما بخش 3</span>
+                                                </a></li>
+                                            
+                                                 <li><a href="ImageSetting.aspx?id=8"><i class="fa fa-angle-right"></i><span>تصویر صفحه پیوستن به ما بخش 3</span>
+                                                </a></li>
+                                                 <li><a href="ImageSetting.aspx?id=9"><i class="fa fa-angle-right"></i><span>تصویر صفحه پیوستن به ما بخش 4</span>
+                                                </a></li>
+                                            </ul>
+                                        </li>
+                                        <li id="email"><a href="#"><i class="fa fa-users icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span><span>دریافت کنندگان ایمیل</span><asp:Label ID="Label8" runat="server" CssClass="badge" Text=""></asp:Label>
+                                        </a>
+                                            <ul class="nav lt">
+                                                <li><a href="EmailRoles.aspx?id=1"><i class="fa fa-angle-right"></i><span>مدیریت ایمیل های تماس با ما</span>
+                                                </a></li>
+                                                 <li><a href="EmailRoles.aspx?id=2"><i class="fa fa-angle-right"></i><span>مدیریت ایمیل های درخواست دمو</span>
+                                                </a></li>
+                                                  <li><a href="EmailRoles.aspx?id=3"><i class="fa fa-angle-right"></i><span>مدیریت ایمیل های درخواست نمایندگی</span>
+                                                </a></li>
+                                                <li><a href="EmailSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت ایمیل ها</span>
+                                                </a></li>
+                                            </ul>
+                                        </li>
+                                        
+                                           <li id="conta"><a href="#"><i class="fa fa-users icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span><span>فرم های سایت</span><asp:Label ID="Label9" runat="server" CssClass="badge" Text=""></asp:Label>
+                                        </a>
+                                            <ul class="nav lt">
+                                                <li><a href="contactForms.aspx"><i class="fa fa-angle-right"></i><span>فرم های تماس با ما</span>
+                                                </a></li>
+                                                <li><a href="CareerListSetting.aspx"><i class="fa fa-angle-right"></i><span>فرم پیوستن به ما</span>
+                                                </a></li>
+                                                  <li><a href="DemoListSetting.aspx"><i class="fa fa-angle-right"></i><span>فرم درخواست دمو</span>
+                                                </a></li>
+                                                  <li><a href="AgentRequests.aspx"><i class="fa fa-angle-right"></i><span>فرم درخواست نمایندگی</span>
+                                                </a></li>
+                                            </ul>
+                                        </li>
+                                         <li id="userli"><a href="UserSetting.aspx"><i class="fa fa-user icon"><b class="bg-info"></b></i><span>مدیریت کاربران</span></a></li>
+                                        <li id="managerli"><a href="ManagerSetting.aspx"><i class="fa fa-user icon"><b class="bg-info"></b></i><span>مدیریت مدیران</span></a></li>
+                                        <li id="sliderli"><a href="SliderSetting.aspx"><i class="fa fa-user icon"><b class="bg-info"></b></i><span>مدیریت تصاویر اسلایدر</span></a></li>
+
+                                               <li id="phone"><a href="#"><i class="fa fa-users icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span><span>مدیریت تلفن های تماس پشتیابنی تلفنی</span><asp:Label ID="Label1" runat="server" CssClass="badge" Text=""></asp:Label>
+                                        </a>
+                                            <ul class="nav lt">
+                                                <li><a href="textsetting.aspx?groupid=2"><i class="fa fa-angle-right"></i><span>قسمت اول</span>
+                                                </a></li>
+                                                <li><a href="textsetting.aspx?groupid=3"><i class="fa fa-angle-right"></i><span>قسمت دوم</span>
+                                                </a></li>                                          
+                                                   <li><a href="textsetting.aspx?groupid=4"><i class="fa fa-angle-right"></i><span>قسمت سوم</span>
+                                                </a></li>
+                                                <li><a href="textsetting.aspx?groupid=5"><i class="fa fa-angle-right"></i><span>قسمت چهارم</span>
+                                                </a></li>
+                                            </ul>
+                                        </li>
+
+                                                  <li id="gall"><a href="#"><i class="fa fa-users icon"><b class="bg-warning"></b></i><span class="pull-right"><i class="fa fa-angle-down text"></i><i class="fa fa-angle-up text-active"></i></span><span>مدیریت رسانه ورانگر</span><asp:Label ID="Label10" runat="server" CssClass="badge" Text=""></asp:Label>
+                                        </a>
+                                            <ul class="nav lt">
+                                                <li><a href="GalleryGroupSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت گروه های تصویر</span>
+                                                </a></li>
+                                                <li><a href="GalleryImageSetting.aspx"><i class="fa fa-angle-right"></i><span>مدیریت مطالب</span>
+                                                </a></li>                                          
+                                                 
+                                            </ul>
+                                        </li>
+                                        <%-- <li id="visitli"><a href="DailyVisit.aspx"><i class="fa fa-eye icon"><b class="bg-purple"></b></i><span>آمار بازدید</span></a></li>
+                                        <li id="logsli"><a href="LoginLogsSetting.aspx"><i class="fa fa-check-square-o icon"><b class="bg-beige"></b></i><span>لاگ های ورودی</span></a></li>--%>
+                                    </ul>
+                                </nav>
+                                <!-- / nav -->
+                            </div>
+                        </section>
+
+                    </section>
+                </aside>
+                <!-- /.aside -->
+                <section id="content">
+                    <section class="vbox">
+                        <section class="scrollable padder" style="margin-top: 5px;">
+                            <form id="form1" runat="server" class="fontBYekan">
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </form>
+                        </section>
+                    </section>
+                    <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+                </section>
+                <aside class="bg-light lter b-l aside-md hide" id="notes">
+                    <div class="wrapper">Notification</div>
+                </aside>
+            </section>
+        </section>
+    </section>
+    <script src="/js/AdminJS/app.v2.js"></script>
+    <!-- Bootstrap -->
+    <!-- App -->
+    <script src="/js/AdminJS/charts/easypiechart/jquery.easy-pie-chart.js" cache="false"></script>
+    <script src="/js/AdminJS/charts/sparkline/jquery.sparkline.min.js" cache="false"></script>
+    <script src="/js/AdminJS/charts/flot/jquery.flot.min.js" cache="false"></script>
+    <script src="/js/AdminJS/charts/flot/jquery.flot.tooltip.min.js" cache="false"></script>
+    <script src="/js/AdminJS/charts/flot/jquery.flot.resize.js" cache="false"></script>
+    <script src="/js/AdminJS/charts/flot/jquery.flot.grow.js" cache="false"></script>
+    <script src="/js/AdminJS/charts/flot/demo.js" cache="false"></script>
+    <script src="/js/AdminJS/calendar/bootstrap_calendar.js" cache="false"></script>
+    <script src="/js/AdminJS/calendar/demo.js" cache="false"></script>
+    <script src="/js/AdminJS/sortable/jquery.sortable.js" cache="false"></script>
+
+</body>
+</html>

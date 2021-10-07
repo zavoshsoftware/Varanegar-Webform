@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="UCFooterBlogItems.ascx.cs" Inherits="Varanegar.Controls.UCFooterBlogItems" %>
+   <asp:Repeater ID="rptFooterBlog" runat="server"><ItemTemplate><p><a href='<%# String.Format("/blog/{0}/{1}", Eval("BlogGroupName"), Eval("BlogName")) %>'><%# Eval("BlogTitle") %></a><span class="days"><%# string.Format("{0:dd MMMM yy}",Eval("SubmitDate")) %></span></p></ItemTemplate></asp:Repeater>

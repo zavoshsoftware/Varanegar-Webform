@@ -1,0 +1,269 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="Varanegar.Home" %>
+
+<%@ Register Src="Controls/UCNewsLetterBox.ascx" TagName="UCNewsLetterBox" TagPrefix="uc1" %>
+<%@ Register Src="Controls/UCFooterBlogItems.ascx" TagName="UCFooterBlogItems" TagPrefix="uc2" %>
+<%@ Register Src="Controls/UCFooterLinks.ascx" TagName="UCFooterLinks" TagPrefix="uc3" %>
+<%@ Register Src="Controls/UCFooterContactInfo.ascx" TagName="UCFooterContactInfo" TagPrefix="uc4" %>
+<%@ Register Src="Controls/UcFooterCopyright.ascx" TagName="UcFooterCopyright" TagPrefix="uc5" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="Persian">
+<head runat="server">
+    <meta name="samandehi" content="181602899" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="keywords" content="نرم افزار پخش مویرگی, سیستم پخش, سیستم پخش مویرگی, برنامه ریزی, مدیریت فروش, مدیران موفق, انبارگردانی, پخش مویرگی, هدف گذاری, تولید کننده, فروش تلفنی, تعریف انبار, مدیریت توزیع, سهمیه بندی, آمار فروش" />
+    <meta name="rights" content="آدرس: تهران، ونک پارک، خیابان شیراز جنوبی، انتهای کوچه آقاعلیخانی شرقی، پلاک2، ساختمان ورانگر
++تلفن: 982187134" />
+    <meta name="author" content="http://www.zavosh.org" />
+    <meta name="robots" content="index,follow" />
+    <meta name="generator" content="Asp.Net" />
+    <meta name="google-site-verification" content="AMcEymQrTfKnM1m9hZo1Nd1_OnefjPkl-LSy_qY9wKw" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/icomoon-fonts.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/settings.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/owl.carousel.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/green.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/loader.min.css" />
+    <link href="/css/varanegar.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/images/fav.ico" />
+    <script src="/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        function AddCurrent(currentMenu) {
+            $('li').removeClass('active');
+            $(currentMenu).addClass('active');
+        }
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-81246736-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <meta name="samandehi" content="181602899" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <div class="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-9">
+                            <ul class="top-left">
+                                <li><a href="#"><i class="fa fa-phone"></i>021 87134</a></li>
+                                <li><a href="mailto:info@varanegar.com" class="enfonts"><i class="icon-mail-envelope-open5"></i>info@varanegar.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-8 col-sm-8 col-xs-3 text-right">
+                            <ul class="top-right text-right">
+                                <li><a href="/Services/support/online-support-e-support">پرتال مشتریان</a></li>
+                                <li><a rel="nofollow" target="_blank" href="https://crm.varanegar.com:44399/Account/Login">مدیریت سیستم خرید آنلاین</a></li>
+                                <li><a rel="nofollow" target="_blank" href="http://varanegar.com/uploads/license-tracking-Guidance.pdf">راهنمای خرید آنلاین لایسنس ترکینگ</a></li>
+                                <li><a class="btn btn-primary" href="/software-demo">درخواست دمو</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <header id="main-navigation" class="index_2">
+                <div id="navigation" data-spy="affix" data-offset-top="20">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <nav class="navbar navbar-default">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#fixed-collapse-navbar" aria-expanded="false">
+                                            <span class="icon-bar top-bar"></span><span class="icon-bar middle-bar"></span><span class="icon-bar bottom-bar"></span>
+                                        </button>
+                                        <a class="navbar-brand" href="/">
+                                            <img src="/images/vlogo2.png" alt="پیشرو ایده ورانگر" class="img-responsive"></a>
+                                    </div>
+                                    <div class="icon-nav pull-left">
+                                        <ul>
+                                            <li><a href="#search"><i class="icon-icons185"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div id="fixed-collapse-navbar" class="navbar-collapse collapse navbar-left">
+                                        <ul class="nav navbar-nav">
+                                            <li id="homeli" class="active">
+                                                <a href="/default.aspx">صفحه اصلی</a>
+                                            </li>
+                                            <li id="proli" class="static dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">محصولات</a>
+                                                <ul class="megamenu-content dropdown-menu">
+                                                    <li>
+                                                        <div class="row">
+                                                            <asp:Repeater ID="rptProductGroups" runat="server" OnItemDataBound="rptProductGroups_ItemDataBound">
+                                                                <ItemTemplate>
+                                                                    <div class="col-sm-3">
+                                                                        <div class="row">
+                                                                            <asp:HiddenField ID="hfProductGroupId" Value='<%# Eval("ProductGroupID") %>' runat="server" />
+                                                                            <h5 class="title"><a href='<%# Eval("ProductGroupName","/Product/{0}") %>'><%# Eval("ProductGroupTitle") %></a></h5>
+                                                                            <ul>
+                                                                                <asp:Repeater ID="rptProducts" runat="server">
+                                                                                    <ItemTemplate>
+                                                                                        <li><a href='<%# String.Format("/Product/{0}/{1}", Eval("ProductGroupName"), Eval("ProductName")) %>'><%# Eval("ProductTitle") %></a></li>
+                                                                                    </ItemTemplate>
+                                                                                </asp:Repeater>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
+                                                            <div class="MenuImage hidden-xs">
+                                                                <img src="/images/menuimage.jpg" width="100%" alt="محصولات ورانگر پیشرو" />
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li id="serviceli" class="static dropdown">
+                                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">خدمات</a>
+                                                <ul class="megamenu-content dropdown-menu serviceitem">
+                                                    <li>
+                                                        <div class="row">
+                                                            <asp:Repeater ID="rptServices" runat="server" OnItemDataBound="rptServices_OnItemDataBound">
+                                                                <ItemTemplate>
+                                                                    <div class="col-sm-3">
+                                                                        <div class="row">
+                                                                            <asp:HiddenField ID="hfServiceId" Value='<%# Eval("ServiceID") %>' runat="server" />
+                                                                            <h5 class="title"><a href='<%# Eval("ServiceName","/Services/{0}") %>'><%# Eval("ServiceTitle") %></a></h5>
+                                                                            <ul>
+                                                                                <asp:Repeater ID="rptServiceSteps" runat="server">
+                                                                                    <ItemTemplate>
+                                                                                        <li><a href='<%# String.Format("/Services/{0}/{1}", Eval("ServiceName"), Eval("ServiceStepName")) %>'><%# Eval("ServiceStepTitle") %></a></li>
+                                                                                    </ItemTemplate>
+                                                                                </asp:Repeater>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </ItemTemplate>
+                                                            </asp:Repeater>
+                                                            <div class="col-sm-3 MenuImage hidden-xs">
+                                                                <img src="/images/soft2.png" width="100%" class="img-responsive" alt="خدمات ورانگر پیشرو" />
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown">
+                                                <a data-toggle="dropdown" href="#" class="dropdown-toggle">راهکارها</a>
+                                                <ul class="dropdown-menu">
+                                                    <asp:Repeater ID="rptSolutions" runat="server">
+                                                        <ItemTemplate>
+                                                            <li><a href='<%# Eval("SolutionName","/solution/{0}") %>'><%# Eval("SolutionTitle") %></a></li>
+                                                        </ItemTemplate>
+                                                    </asp:Repeater>
+                                                </ul>
+                                            </li>
+                                            <li class="dropdown" id="careerli">
+                                                <a href="/career" data-toggle="dropdown" class="dropdown-toggle">پیوستن به ما</a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="/career">پیوستن به ما</a></li>
+                                                    <li><a href="/sales-agent">درخواست نمایندگی</a></li>
+                                                    <li><a href="/internship">دوره های کارآموزی</a></li>
+                                                </ul>
+                                            </li>
+                                            <li id="customerli">
+                                                <a href="/customer">مشتریان</a>
+                                            </li>
+                                             <li class="dropdown">
+                                            <a href="/blog" data-toggle="dropdown" class="dropdown-toggle">اخبار</a><ul class="dropdown-menu">
+                                                <asp:Repeater ID="rptBlogGroup" runat="server">
+                                                    <ItemTemplate>
+                                                        <li><a href="<%# Eval("BlogGroupName","/blog/{0}") %>"><%# Eval("BlogGroupTitle") %></a></li>
+                                                   
+
+                                                    </ItemTemplate>
+
+                                                </asp:Repeater>
+                                                  <li><a href="/gallery">رسانه ورانگر</a></li>
+                                            </ul>
+                                        </li>
+                                            <li id="aboutli"><a href="/about">درباره ما</a></li>
+                                            <li id="contactli"><a href="/contact">تماس با ما</a></li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div id="search">
+                <button type="button" class="close">×</button>
+                <asp:TextBox ID="txtSearch" runat="server" placeholder="عبارت مورد نظر خود را اینجا وارد نمایید"></asp:TextBox>
+                <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_OnClick" CssClass="btn btn-primary" Text="جست و جو" />
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <footer>
+                <div class="container footer_top">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <uc4:UCFooterContactInfo ID="UCFooterContactInfo" runat="server" />
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="footer-col index_2" style="text-align: center;">
+                                <h4>لینک های مفید</h4>
+                                <p class="clear"></p>
+                                <uc3:UCFooterLinks ID="UCFooterLinks1" runat="server" />
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="footer-col index_2 news">
+                                <h4>آخرین اخبار</h4>
+                                <p class="clear"></p>
+                                <uc2:UCFooterBlogItems ID="UCFooterBlogItems" runat="server" />
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="footer-col index_2 logo">
+                                <a href="/default.aspx" class="img-responsive">
+                                    <img src="/images/vlogo1.png" alt="ورانگر پیشرو"></a>
+                                <p>ورانگر اولین و معتبرترین تولیدکننده نرم افزارهای تخصصی فروش و پخش مویرگی بعنوان پیشکسوت نرم افزاری در حوزه پخش، متمایزترین محصولات و خدمات را ارایه نموده که بسیاری از بزرگان صنعت مذکور از این خدمات استفاده می نمایند.</p>
+                                <h4>ثبت نام در خبر نامه</h4>
+                                <p class="clear"></p>
+                                <uc1:UCNewsLetterBox ID="UCNewsLetterBox1" runat="server" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <div class="footer-bottom index_2">
+                <a href="#" class="go-top text-center"><i class="fa fa-angle-double-up"></i></a>
+                <div class="container">
+                    <div class="row copyright">
+                        <uc5:UcFooterCopyright ID="UcFooterCopyright" runat="server" />
+                    </div>
+                </div>
+            </div>
+            <script src="/js/jquery-2.1.4.min.js"></script>
+            <script src="/js/bootstrap.min.js"></script>
+            <script src="/js/owl.carousel.min.js"></script>
+            <script src="/js/jquery-countto.min.js"></script>
+            <script src="/js/jquery.appear.min.js"></script>
+            <script src="/js/jquery.mixitup.min.js"></script>
+            <script src="/js/portfolio.min.js"></script>
+            <script src="/js/wow.min.js"></script>
+            <script src="/js/jquery.themepunch.tools.min.js"></script>
+            <script src="/js/jquery.themepunch.revolution.min.js"></script>
+            <script src="/js/slider.min.js"></script>
+            <script src="/js/popup.js"></script>
+    <script src="/js/functions.min.js"></script>
+        </div>
+    </form>
+</body>
+</html>

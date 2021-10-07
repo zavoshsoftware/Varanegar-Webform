@@ -1,0 +1,2735 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="VaranegarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AgentPreviousJobs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fk_AgentId" Type="uniqueidentifier" />
+          <Property Name="JobPlaceName" Type="nvarchar" MaxLength="150" />
+          <Property Name="IndustryType" Type="nvarchar" MaxLength="150" />
+          <Property Name="JobStartYear" Type="int" />
+          <Property Name="JobFinishDate" Type="int" />
+          <Property Name="JobDescription" Type="nvarchar(max)" />
+          <Property Name="JobPost" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="AgentQuestionaries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsCompany" Type="bit" />
+          <Property Name="FullName" Type="nvarchar" MaxLength="350" />
+          <Property Name="BirthCerId" Type="nvarchar" MaxLength="15" />
+          <Property Name="NationalCode" Type="nvarchar" MaxLength="15" />
+          <Property Name="BirthPlace" Type="nvarchar" MaxLength="510" />
+          <Property Name="HomeAddress" Type="nvarchar(max)" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="25" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="260" />
+          <Property Name="IsSellSoftwar" Type="bit" />
+          <Property Name="SellSoftwareDesc" Type="nvarchar(max)" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="150" />
+          <Property Name="CompanyAddress" Type="nvarchar" MaxLength="500" />
+          <Property Name="CompanyPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyOwnership" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyArea" Type="nvarchar" MaxLength="50" />
+          <Property Name="CompanyPostalCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="CompanyEmployeeNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsHighSpeedInternet" Type="bit" />
+          <Property Name="IsInsurance" Type="bit" />
+          <Property Name="IsAgent" Type="bit" />
+          <Property Name="IsAgentDesc" Type="nvarchar" MaxLength="500" />
+          <Property Name="VaranegarSoftwareIntroduce" Type="nvarchar" MaxLength="500" />
+          <Property Name="IsCommercialPlace" Type="bit" />
+          <Property Name="IsCommercialPlaceDesc" Type="nvarchar" MaxLength="500" />
+          <Property Name="ReasonForDo" Type="ntext" />
+          <Property Name="HowKnowUs" Type="nvarchar" MaxLength="250" />
+          <Property Name="fk_CityId" Type="int" />
+          <Property Name="RegisterDate" Type="datetime" />
+          <Property Name="Browser" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ip" Type="varchar" MaxLength="30" />
+          <Property Name="Os" Type="varchar" MaxLength="30" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BlogComments">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="CommentBody" Type="ntext" />
+          <Property Name="CommentDate" Type="datetime" />
+          <Property Name="CommentIP" Type="varchar" MaxLength="40" />
+          <Property Name="fk_BlogID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsValid" Type="bit" />
+          <Property Name="ValidationDate" Type="datetime" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="BlogGroups">
+          <Key>
+            <PropertyRef Name="BlogGroupID" />
+          </Key>
+          <Property Name="BlogGroupID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BlogGroupTitle" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="En_BlogGroupTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="BlogGroupName" Type="nvarchar" MaxLength="150" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="LastUpdateDate" Type="datetime" />
+          <Property Name="Priority" Type="int" />
+        </EntityType>
+        <EntityType Name="Blogs">
+          <Key>
+            <PropertyRef Name="BlogID" />
+          </Key>
+          <Property Name="BlogID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fk_BlogGroupID" Type="uniqueidentifier" />
+          <Property Name="BlogTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="En_BlogTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="BlogName" Type="nvarchar" MaxLength="250" />
+          <Property Name="BlogImage" Type="varchar" MaxLength="50" />
+          <Property Name="BlogBody" Type="ntext" />
+          <Property Name="En_BlogBody" Type="ntext" />
+          <Property Name="Visit" Type="int" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="LastUpdateDate" Type="datetime" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="summeryText" Type="nvarchar(max)" />
+          <Property Name="En_summeryText" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="CareerForm">
+          <Key>
+            <PropertyRef Name="careerID" />
+          </Key>
+          <Property Name="careerID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="150" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="150" />
+          <Property Name="FatherName" Type="nvarchar" MaxLength="150" />
+          <Property Name="NationalSHCode" Type="nvarchar" MaxLength="150" />
+          <Property Name="NationalCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="birthDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthPlace" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="marriage" Type="int" />
+          <Property Name="childrenNumb" Type="nvarchar" MaxLength="50" />
+          <Property Name="HomeStatus" Type="int" />
+          <Property Name="IsInsurance" Type="bit" />
+          <Property Name="MilitaryStatus" Type="int" />
+          <Property Name="ExpertOn" Type="int" />
+          <Property Name="History" Type="ntext" />
+          <Property Name="degree" Type="int" />
+          <Property Name="major" Type="nvarchar" MaxLength="250" />
+          <Property Name="Software" Type="ntext" />
+          <Property Name="familiarIndustry" Type="int" />
+          <Property Name="languagesRate" Type="int" />
+          <Property Name="howtoFind" Type="int" />
+          <Property Name="howtoFindDesc" Type="ntext" />
+          <Property Name="OvertimeWork" Type="bit" />
+          <Property Name="NightWork" Type="bit" />
+          <Property Name="missionWork" Type="bit" />
+          <Property Name="WeekendWork" Type="bit" />
+          <Property Name="Surgery" Type="bit" />
+          <Property Name="Conviction" Type="bit" />
+          <Property Name="Smoking" Type="bit" />
+          <Property Name="Warranty" Type="bit" />
+          <Property Name="WorkingType" Type="int" />
+          <Property Name="FinalDesc" Type="ntext" />
+          <Property Name="sallary" Type="nvarchar" MaxLength="50" />
+          <Property Name="StartDate" Type="nvarchar" MaxLength="150" />
+          <Property Name="resumeFile" Type="varchar" MaxLength="50" />
+          <Property Name="IsVisited" Type="bit" />
+          <Property Name="RegisterDate" Type="datetime" />
+          <Property Name="Browser" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ip" Type="varchar" MaxLength="30" />
+          <Property Name="Os" Type="varchar" MaxLength="30" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="OtherExpertTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="OtherFamiliar" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProvinceID" Type="int" Nullable="false" />
+          <Property Name="CityName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Center" Type="bit" />
+          <Property Name="EN_CityName" Type="varchar" MaxLength="150" />
+          <Property Name="Rus_CityName" Type="varchar" MaxLength="150" />
+          <Property Name="China_CityName" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="ContactUsForm">
+          <Key>
+            <PropertyRef Name="contactid" />
+          </Key>
+          <Property Name="contactid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="150" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" />
+          <Property Name="Mobile" Type="varchar" MaxLength="15" />
+          <Property Name="fk_RecieverID" Type="int" />
+          <Property Name="CommentBody" Type="ntext" />
+          <Property Name="CommentDate" Type="datetime" />
+          <Property Name="CommentIP" Type="varchar" MaxLength="40" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ContactUsFormRecievers">
+          <Key>
+            <PropertyRef Name="RecieverID" />
+          </Key>
+          <Property Name="RecieverID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="RecieverTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="RecieverEmail" Type="nvarchar" MaxLength="260" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="CustomerGroups">
+          <Key>
+            <PropertyRef Name="CustomerGroupID" />
+          </Key>
+          <Property Name="CustomerGroupID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomerGroupTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="En_CustomerGroupTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="CustomerGroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomersID" />
+          </Key>
+          <Property Name="CustomersID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fk_CustomerGroupID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CustomerTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="En_CustomerTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SuccessHistory" Type="ntext" />
+          <Property Name="En_SuccessHistory" Type="ntext" />
+          <Property Name="IsInHome" Type="bit" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="LastUpdateDate" Type="datetime" />
+          <Property Name="submitDate" Type="datetime" />
+          <Property Name="ImgLogo" Type="nvarchar" MaxLength="40" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="StartMonth" Type="int" />
+          <Property Name="StartYear" Type="int" />
+          <Property Name="FinishMonth" Type="int" />
+          <Property Name="FinishYear" Type="int" />
+          <Property Name="BranchNumber" Type="int" />
+          <Property Name="ImgLogo_Thumb" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DemoRequests">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="160" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Field" Type="nvarchar" MaxLength="1500" />
+          <Property Name="Post" Type="nvarchar" MaxLength="150" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="fk_FamiliarMethodID" Type="int" Nullable="false" />
+          <Property Name="FinalDesc" Type="ntext" />
+          <Property Name="IsVisited" Type="bit" />
+          <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+          <Property Name="Browser" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ip" Type="varchar" MaxLength="30" />
+          <Property Name="Os" Type="varchar" MaxLength="30" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="fk_RecieverID" Type="int" />
+        </EntityType>
+        <EntityType Name="EmailRecieverRoles">
+          <Key>
+            <PropertyRef Name="EmailRecieverRoleID" />
+          </Key>
+          <Property Name="EmailRecieverRoleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="groupdid" Type="int" />
+        </EntityType>
+        <EntityType Name="Emails">
+          <Key>
+            <PropertyRef Name="EmailId" />
+          </Key>
+          <Property Name="EmailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmailTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="fk_RecieverRoleID" Type="int" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="FamiliarMethods">
+          <Key>
+            <PropertyRef Name="FamiliarMethodID" />
+          </Key>
+          <Property Name="FamiliarMethodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FamiliarMethodTitle" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="GalleryGroups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="LastUpdateDate" Type="datetime" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="GalleryImages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fk_GalleryId" Type="uniqueidentifier" />
+          <Property Name="Title" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Summery" Type="ntext" />
+          <Property Name="VideoLink" Type="ntext" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="Priority" Type="int" />
+        </EntityType>
+        <EntityType Name="ImageGroups">
+          <Key>
+            <PropertyRef Name="ImageGroupID" />
+          </Key>
+          <Property Name="ImageGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImageTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImgUrlAddress" Type="varchar" MaxLength="50" />
+          <Property Name="ImgLastUpdateDate" Type="datetime" />
+          <Property Name="LastUpdateUserID" Type="int" />
+          <Property Name="fk_ImageGroupID" Type="int" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Log_Errors">
+          <Key>
+            <PropertyRef Name="ErrorID" />
+          </Key>
+          <Property Name="ErrorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ErrorDate" Type="datetime" Nullable="false" />
+          <Property Name="ErrorIp" Type="varchar" MaxLength="25" />
+          <Property Name="RefrallPage" Type="ntext" />
+          <Property Name="browser" Type="varchar" MaxLength="40" />
+          <Property Name="OS" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Log_SearchQueries">
+          <Key>
+            <PropertyRef Name="SearchID" />
+          </Key>
+          <Property Name="SearchID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SearchQuery" Type="ntext" />
+          <Property Name="SearchDate" Type="datetime" Nullable="false" />
+          <Property Name="SearchIp" Type="varchar" MaxLength="25" />
+          <Property Name="RefrallPage" Type="ntext" />
+          <Property Name="browser" Type="varchar" MaxLength="40" />
+          <Property Name="OS" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Managers">
+          <Key>
+            <PropertyRef Name="ManagerID" />
+          </Key>
+          <Property Name="ManagerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+          <Property Name="ManagerTitle" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ManagerPost" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ManagerDesc" Type="nvarchar" MaxLength="500" />
+          <Property Name="En_ManagerTitle" Type="nvarchar" MaxLength="150" />
+          <Property Name="En_ManagerPost" Type="nvarchar" MaxLength="150" />
+          <Property Name="En_ManagerDesc" Type="nvarchar" MaxLength="500" />
+          <Property Name="ManagerImg" Type="varchar" MaxLength="50" />
+          <Property Name="LinkedinLink" Type="nvarchar" MaxLength="250" />
+          <Property Name="EmailLink" Type="nvarchar" MaxLength="260" />
+          <Property Name="SubmitDate" Type="datetime" Nullable="false" />
+          <Property Name="UserSubmited" Type="int" Nullable="false" />
+          <Property Name="LastUpdateDate" Type="datetime" />
+          <Property Name="UserLastUpdated" Type="int" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="deleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="NewsLetters">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="1500" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="SubmitIP" Type="varchar" MaxLength="30" />
+          <Property Name="Browser" Type="varchar" MaxLength="30" />
+          <Property Name="OS" Type="varchar" MaxLength="30" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProductGroups">
+          <Key>
+            <PropertyRef Name="ProductGroupID" />
+          </Key>
+          <Property Name="ProductGroupID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductGroupTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProductGroupName" Type="varchar" MaxLength="200" />
+          <Property Name="ProductGroupImage" Type="varchar" MaxLength="50" />
+          <Property Name="ProductGroupDesc" Type="ntext" />
+          <Property Name="En_ProductGroupDesc" Type="ntext" />
+          <Property Name="En_ProductGroupTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProductGroupSummery" Type="nvarchar" MaxLength="500" />
+          <Property Name="En_ProductGroupSummery" Type="nvarchar" MaxLength="500" />
+          <Property Name="fk_ProductGroupID" Type="uniqueidentifier" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="LastUpdateDate" Type="datetime" />
+          <Property Name="IsDraft" Type="bit" />
+          <Property Name="ProductGroupDesc_Draft" Type="ntext" />
+          <Property Name="En_ProductGroupDesc_Draft" Type="ntext" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="En_ProductTitle" Type="varchar" MaxLength="200" />
+          <Property Name="ProductSumery" Type="nvarchar" MaxLength="500" />
+          <Property Name="En_ProductSumery" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProductDesc" Type="ntext" />
+          <Property Name="En_ProductDesc" Type="ntext" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ProductImage" Type="nvarchar" MaxLength="50" />
+          <Property Name="fk_ProductGroupID" Type="uniqueidentifier" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="submitDate" Type="datetime" />
+          <Property Name="LastUpdateDate" Type="datetime" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="ProductImage_Thumb" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="ProvinceID" />
+          </Key>
+          <Property Name="ProvinceID" Type="int" Nullable="false" />
+          <Property Name="ProvinceName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EN_ProvinceName" Type="varchar" MaxLength="150" />
+          <Property Name="Rus_ProvinceName" Type="varchar" MaxLength="150" />
+          <Property Name="China_ProvinceName" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Rel_Customer_Province">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_ProvinceID" Type="int" Nullable="false" />
+          <Property Name="fk_CustomerID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rel_Solutions_Customers">
+          <Key>
+            <PropertyRef Name="SolutionCustomerID" />
+          </Key>
+          <Property Name="SolutionCustomerID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fk_SolutionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fk_CustomerID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Resumes">
+          <Key>
+            <PropertyRef Name="resumeid" />
+          </Key>
+          <Property Name="resumeid" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="resumeFile" Type="varchar" MaxLength="50" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="submitIP" Type="varchar" MaxLength="30" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="RoleTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="RoleName" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SeminarRequests">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="160" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="256" Nullable="false" />
+          <Property Name="NationalId" Type="varchar" MaxLength="10" />
+          <Property Name="RegisterDate" Type="datetime" Nullable="false" />
+          <Property Name="Browser" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ip" Type="varchar" MaxLength="30" />
+          <Property Name="Os" Type="varchar" MaxLength="30" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="CustomerCode" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ServiceTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="En_ServiceTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="ServiceName" Type="nvarchar" MaxLength="200" />
+          <Property Name="ServiceDesc" Type="ntext" />
+          <Property Name="En_ServiceDesc" Type="ntext" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="LastUpdateDate" Type="datetime" />
+          <Property Name="HeaderImg" Type="varchar" MaxLength="50" />
+          <Property Name="SmallDesc" Type="nvarchar(max)" />
+          <Property Name="En_SmallDesc" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ServiceStepItems">
+          <Key>
+            <PropertyRef Name="ServiceStepItemID" />
+          </Key>
+          <Property Name="ServiceStepItemID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ServiceStepItemTitle" Type="nvarchar" MaxLength="600" />
+          <Property Name="En_ServiceStepItemTitle" Type="nvarchar" MaxLength="600" />
+          <Property Name="fk_ServiceStepID" Type="uniqueidentifier" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="SubmitDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ServiceSteps">
+          <Key>
+            <PropertyRef Name="ServiceStepID" />
+          </Key>
+          <Property Name="ServiceStepID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ServiceStepTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="En_ServiceStepTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="fk_ServiceID" Type="uniqueidentifier" />
+          <Property Name="ServiceStepImage" Type="varchar" MaxLength="50" />
+          <Property Name="ServiceStepDesc" Type="ntext" />
+          <Property Name="En_ServiceStepDesc" Type="ntext" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="LastUpdateDate" Type="datetime" />
+          <Property Name="ServiceStepName" Type="nvarchar" MaxLength="200" />
+          <Property Name="SmallDesc" Type="nvarchar(max)" />
+          <Property Name="En_SmallDesc" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Sliders">
+          <Key>
+            <PropertyRef Name="SliderID" />
+          </Key>
+          <Property Name="SliderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SliderTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="SmallText" Type="nvarchar" MaxLength="1500" />
+          <Property Name="BigText" Type="nvarchar" MaxLength="1500" />
+          <Property Name="LinkText" Type="nvarchar" MaxLength="50" />
+          <Property Name="LinkAddress" Type="ntext" />
+          <Property Name="SliderImageUrl" Type="varchar" MaxLength="100" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Priority" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SolutionGroups">
+          <Key>
+            <PropertyRef Name="SolutionGroupID" />
+          </Key>
+          <Property Name="SolutionGroupID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SolutionGroupTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="En_SolutionGroupTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="SolutionGroupName" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="Priority" Type="int" />
+        </EntityType>
+        <EntityType Name="Solutions">
+          <Key>
+            <PropertyRef Name="SolutionID" />
+          </Key>
+          <Property Name="SolutionID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="fk_SolutionGroupID" Type="uniqueidentifier" />
+          <Property Name="SolutionTitle" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="En_SolutionTitle" Type="nvarchar" MaxLength="200" />
+          <Property Name="SolutionName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ImgBannerFile" Type="nvarchar" MaxLength="50" />
+          <Property Name="BannerText" Type="nvarchar" MaxLength="500" />
+          <Property Name="En_BannerText" Type="nvarchar" MaxLength="500" />
+          <Property Name="ProblemDesc" Type="ntext" />
+          <Property Name="En_ProblemDesc" Type="ntext" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="Priority" Type="int" />
+          <Property Name="ProductInSupply" Type="ntext" />
+        </EntityType>
+        <EntityType Name="Texts">
+          <Key>
+            <PropertyRef Name="TextID" />
+          </Key>
+          <Property Name="TextID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TextTitle" Type="nvarchar" MaxLength="1500" />
+          <Property Name="TextBody" Type="ntext" />
+          <Property Name="En_TextTitle" Type="nvarchar" MaxLength="1500" />
+          <Property Name="En_TextBody" Type="ntext" />
+          <Property Name="SubmitDate" Type="datetime" />
+          <Property Name="LastUpdateDate" Type="datetime" />
+          <Property Name="groupid" Type="int" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="75" />
+          <Property Name="LastFamily" Type="nvarchar" MaxLength="75" />
+          <Property Name="Phone" Type="varchar" MaxLength="25" />
+          <Property Name="Mobile" Type="varchar" MaxLength="20" />
+          <Property Name="fk_RoleID" Type="int" />
+          <Property Name="RegisterDate" Type="datetime" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="RegisterIP" Type="varchar" MaxLength="20" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_AgentPreviousJobs_AgentQuestionaries">
+          <End Role="AgentQuestionaries" Type="Self.AgentQuestionaries" Multiplicity="0..1" />
+          <End Role="AgentPreviousJobs" Type="Self.AgentPreviousJobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgentQuestionaries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AgentPreviousJobs">
+              <PropertyRef Name="fk_AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComments_Blogs">
+          <End Role="Blogs" Type="Self.Blogs" Multiplicity="1" />
+          <End Role="BlogComments" Type="Self.BlogComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="BlogID" />
+            </Principal>
+            <Dependent Role="BlogComments">
+              <PropertyRef Name="fk_BlogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blogs_BlogGroups">
+          <End Role="BlogGroups" Type="Self.BlogGroups" Multiplicity="0..1" />
+          <End Role="Blogs" Type="Self.Blogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogGroups">
+              <PropertyRef Name="BlogGroupID" />
+            </Principal>
+            <Dependent Role="Blogs">
+              <PropertyRef Name="fk_BlogGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_Province">
+          <End Role="Province" Type="Self.Province" Multiplicity="1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="ProvinceID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="ProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactUsForm_EmailRecieverRoles">
+          <End Role="EmailRecieverRoles" Type="Self.EmailRecieverRoles" Multiplicity="0..1" />
+          <End Role="ContactUsForm" Type="Self.ContactUsForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmailRecieverRoles">
+              <PropertyRef Name="EmailRecieverRoleID" />
+            </Principal>
+            <Dependent Role="ContactUsForm">
+              <PropertyRef Name="fk_RecieverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customers_CustomerGroups">
+          <End Role="CustomerGroups" Type="Self.CustomerGroups" Multiplicity="1" />
+          <End Role="Customers" Type="Self.Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerGroups">
+              <PropertyRef Name="CustomerGroupID" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="fk_CustomerGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemoRequests_EmailRecieverRoles">
+          <End Role="EmailRecieverRoles" Type="Self.EmailRecieverRoles" Multiplicity="0..1" />
+          <End Role="DemoRequests" Type="Self.DemoRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmailRecieverRoles">
+              <PropertyRef Name="EmailRecieverRoleID" />
+            </Principal>
+            <Dependent Role="DemoRequests">
+              <PropertyRef Name="fk_RecieverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemoRequests_FamiliarMethods">
+          <End Role="FamiliarMethods" Type="Self.FamiliarMethods" Multiplicity="1" />
+          <End Role="DemoRequests" Type="Self.DemoRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FamiliarMethods">
+              <PropertyRef Name="FamiliarMethodID" />
+            </Principal>
+            <Dependent Role="DemoRequests">
+              <PropertyRef Name="fk_FamiliarMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emails_EmailRecieverRoles">
+          <End Role="EmailRecieverRoles" Type="Self.EmailRecieverRoles" Multiplicity="0..1" />
+          <End Role="Emails" Type="Self.Emails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmailRecieverRoles">
+              <PropertyRef Name="EmailRecieverRoleID" />
+            </Principal>
+            <Dependent Role="Emails">
+              <PropertyRef Name="fk_RecieverRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GalleryImages_GalleryGroups">
+          <End Role="GalleryGroups" Type="Self.GalleryGroups" Multiplicity="0..1" />
+          <End Role="GalleryImages" Type="Self.GalleryImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryGroups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GalleryImages">
+              <PropertyRef Name="fk_GalleryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_ImageGroups">
+          <End Role="ImageGroups" Type="Self.ImageGroups" Multiplicity="0..1" />
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageGroups">
+              <PropertyRef Name="ImageGroupID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="fk_ImageGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="LastUpdateUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductGroups_ProductGroups">
+          <End Role="ProductGroups" Type="Self.ProductGroups" Multiplicity="0..1" />
+          <End Role="ProductGroups1" Type="Self.ProductGroups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroups">
+              <PropertyRef Name="ProductGroupID" />
+            </Principal>
+            <Dependent Role="ProductGroups1">
+              <PropertyRef Name="fk_ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_ProductGroups">
+          <End Role="ProductGroups" Type="Self.ProductGroups" Multiplicity="0..1" />
+          <End Role="Products" Type="Self.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroups">
+              <PropertyRef Name="ProductGroupID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="fk_ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rel_Customer_Province_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Rel_Customer_Province" Type="Self.Rel_Customer_Province" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomersID" />
+            </Principal>
+            <Dependent Role="Rel_Customer_Province">
+              <PropertyRef Name="fk_CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rel_Solutions_Customers_Customers">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Rel_Solutions_Customers" Type="Self.Rel_Solutions_Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomersID" />
+            </Principal>
+            <Dependent Role="Rel_Solutions_Customers">
+              <PropertyRef Name="fk_CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rel_Solutions_Customers_Solutions">
+          <End Role="Solutions" Type="Self.Solutions" Multiplicity="1" />
+          <End Role="Rel_Solutions_Customers" Type="Self.Rel_Solutions_Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solutions">
+              <PropertyRef Name="SolutionID" />
+            </Principal>
+            <Dependent Role="Rel_Solutions_Customers">
+              <PropertyRef Name="fk_SolutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceStepItems_ServiceSteps">
+          <End Role="ServiceSteps" Type="Self.ServiceSteps" Multiplicity="0..1" />
+          <End Role="ServiceStepItems" Type="Self.ServiceStepItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceSteps">
+              <PropertyRef Name="ServiceStepID" />
+            </Principal>
+            <Dependent Role="ServiceStepItems">
+              <PropertyRef Name="fk_ServiceStepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceSteps_Services">
+          <End Role="Services" Type="Self.Services" Multiplicity="0..1" />
+          <End Role="ServiceSteps" Type="Self.ServiceSteps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="ServiceSteps">
+              <PropertyRef Name="fk_ServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="0..1" />
+          <End Role="Users" Type="Self.Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="fk_RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VaranegarModelStoreContainer">
+          <EntitySet Name="AgentPreviousJobs" EntityType="Self.AgentPreviousJobs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgentQuestionaries" EntityType="Self.AgentQuestionaries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogComments" EntityType="Self.BlogComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BlogGroups" EntityType="Self.BlogGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Blogs" EntityType="Self.Blogs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CareerForm" EntityType="Self.CareerForm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactUsForm" EntityType="Self.ContactUsForm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactUsFormRecievers" EntityType="Self.ContactUsFormRecievers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerGroups" EntityType="Self.CustomerGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DemoRequests" EntityType="Self.DemoRequests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmailRecieverRoles" EntityType="Self.EmailRecieverRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emails" EntityType="Self.Emails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FamiliarMethods" EntityType="Self.FamiliarMethods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GalleryGroups" EntityType="Self.GalleryGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GalleryImages" EntityType="Self.GalleryImages" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImageGroups" EntityType="Self.ImageGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Images" EntityType="Self.Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log_Errors" EntityType="Self.Log_Errors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log_SearchQueries" EntityType="Self.Log_SearchQueries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Managers" EntityType="Self.Managers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NewsLetters" EntityType="Self.NewsLetters" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductGroups" EntityType="Self.ProductGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rel_Customer_Province" EntityType="Self.Rel_Customer_Province" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rel_Solutions_Customers" EntityType="Self.Rel_Solutions_Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resumes" EntityType="Self.Resumes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SeminarRequests" EntityType="Self.SeminarRequests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceStepItems" EntityType="Self.ServiceStepItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ServiceSteps" EntityType="Self.ServiceSteps" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sliders" EntityType="Self.Sliders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SolutionGroups" EntityType="Self.SolutionGroups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solutions" EntityType="Self.Solutions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Texts" EntityType="Self.Texts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AgentPreviousJobs_AgentQuestionaries" Association="Self.FK_AgentPreviousJobs_AgentQuestionaries">
+            <End Role="AgentQuestionaries" EntitySet="AgentQuestionaries" />
+            <End Role="AgentPreviousJobs" EntitySet="AgentPreviousJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComments_Blogs" Association="Self.FK_BlogComments_Blogs">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogComments" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blogs_BlogGroups" Association="Self.FK_Blogs_BlogGroups">
+            <End Role="BlogGroups" EntitySet="BlogGroups" />
+            <End Role="Blogs" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_Province" Association="Self.FK_City_Province">
+            <End Role="Province" EntitySet="Province" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactUsForm_EmailRecieverRoles" Association="Self.FK_ContactUsForm_EmailRecieverRoles">
+            <End Role="EmailRecieverRoles" EntitySet="EmailRecieverRoles" />
+            <End Role="ContactUsForm" EntitySet="ContactUsForm" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customers_CustomerGroups" Association="Self.FK_Customers_CustomerGroups">
+            <End Role="CustomerGroups" EntitySet="CustomerGroups" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemoRequests_EmailRecieverRoles" Association="Self.FK_DemoRequests_EmailRecieverRoles">
+            <End Role="EmailRecieverRoles" EntitySet="EmailRecieverRoles" />
+            <End Role="DemoRequests" EntitySet="DemoRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemoRequests_FamiliarMethods" Association="Self.FK_DemoRequests_FamiliarMethods">
+            <End Role="FamiliarMethods" EntitySet="FamiliarMethods" />
+            <End Role="DemoRequests" EntitySet="DemoRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emails_EmailRecieverRoles" Association="Self.FK_Emails_EmailRecieverRoles">
+            <End Role="EmailRecieverRoles" EntitySet="EmailRecieverRoles" />
+            <End Role="Emails" EntitySet="Emails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GalleryImages_GalleryGroups" Association="Self.FK_GalleryImages_GalleryGroups">
+            <End Role="GalleryGroups" EntitySet="GalleryGroups" />
+            <End Role="GalleryImages" EntitySet="GalleryImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_ImageGroups" Association="Self.FK_Images_ImageGroups">
+            <End Role="ImageGroups" EntitySet="ImageGroups" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Users" Association="Self.FK_Images_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductGroups_ProductGroups" Association="Self.FK_ProductGroups_ProductGroups">
+            <End Role="ProductGroups" EntitySet="ProductGroups" />
+            <End Role="ProductGroups1" EntitySet="ProductGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_ProductGroups" Association="Self.FK_Products_ProductGroups">
+            <End Role="ProductGroups" EntitySet="ProductGroups" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rel_Customer_Province_Customers" Association="Self.FK_Rel_Customer_Province_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Rel_Customer_Province" EntitySet="Rel_Customer_Province" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rel_Solutions_Customers_Customers" Association="Self.FK_Rel_Solutions_Customers_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Rel_Solutions_Customers" EntitySet="Rel_Solutions_Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rel_Solutions_Customers_Solutions" Association="Self.FK_Rel_Solutions_Customers_Solutions">
+            <End Role="Solutions" EntitySet="Solutions" />
+            <End Role="Rel_Solutions_Customers" EntitySet="Rel_Solutions_Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceStepItems_ServiceSteps" Association="Self.FK_ServiceStepItems_ServiceSteps">
+            <End Role="ServiceSteps" EntitySet="ServiceSteps" />
+            <End Role="ServiceStepItems" EntitySet="ServiceStepItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceSteps_Services" Association="Self.FK_ServiceSteps_Services">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="ServiceSteps" EntitySet="ServiceSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="VaranegarModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="VaranegarEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AgentPreviousJobs" EntityType="VaranegarModel.AgentPreviousJobs" />
+          <EntitySet Name="AgentQuestionaries" EntityType="VaranegarModel.AgentQuestionaries" />
+          <EntitySet Name="BlogComments" EntityType="VaranegarModel.BlogComments" />
+          <EntitySet Name="BlogGroups" EntityType="VaranegarModel.BlogGroups" />
+          <EntitySet Name="Blogs" EntityType="VaranegarModel.Blogs" />
+          <EntitySet Name="CareerForm" EntityType="VaranegarModel.CareerForm" />
+          <EntitySet Name="City" EntityType="VaranegarModel.City" />
+          <EntitySet Name="ContactUsForm" EntityType="VaranegarModel.ContactUsForm" />
+          <EntitySet Name="ContactUsFormRecievers" EntityType="VaranegarModel.ContactUsFormRecievers" />
+          <EntitySet Name="CustomerGroups" EntityType="VaranegarModel.CustomerGroups" />
+          <EntitySet Name="Customers" EntityType="VaranegarModel.Customers" />
+          <EntitySet Name="DemoRequests" EntityType="VaranegarModel.DemoRequests" />
+          <EntitySet Name="EmailRecieverRoles" EntityType="VaranegarModel.EmailRecieverRoles" />
+          <EntitySet Name="Emails" EntityType="VaranegarModel.Emails" />
+          <EntitySet Name="FamiliarMethods" EntityType="VaranegarModel.FamiliarMethods" />
+          <EntitySet Name="GalleryGroups" EntityType="VaranegarModel.GalleryGroups" />
+          <EntitySet Name="GalleryImages" EntityType="VaranegarModel.GalleryImages" />
+          <EntitySet Name="ImageGroups" EntityType="VaranegarModel.ImageGroups" />
+          <EntitySet Name="Images" EntityType="VaranegarModel.Images" />
+          <EntitySet Name="Log_Errors" EntityType="VaranegarModel.Log_Errors" />
+          <EntitySet Name="Log_SearchQueries" EntityType="VaranegarModel.Log_SearchQueries" />
+          <EntitySet Name="Managers" EntityType="VaranegarModel.Managers" />
+          <EntitySet Name="NewsLetters" EntityType="VaranegarModel.NewsLetters" />
+          <EntitySet Name="ProductGroups" EntityType="VaranegarModel.ProductGroups" />
+          <EntitySet Name="Products" EntityType="VaranegarModel.Products" />
+          <EntitySet Name="Province" EntityType="VaranegarModel.Province" />
+          <EntitySet Name="Rel_Customer_Province" EntityType="VaranegarModel.Rel_Customer_Province" />
+          <EntitySet Name="Rel_Solutions_Customers" EntityType="VaranegarModel.Rel_Solutions_Customers" />
+          <EntitySet Name="Resumes" EntityType="VaranegarModel.Resumes" />
+          <EntitySet Name="Roles" EntityType="VaranegarModel.Roles" />
+          <EntitySet Name="Services" EntityType="VaranegarModel.Services" />
+          <EntitySet Name="ServiceStepItems" EntityType="VaranegarModel.ServiceStepItems" />
+          <EntitySet Name="ServiceSteps" EntityType="VaranegarModel.ServiceSteps" />
+          <EntitySet Name="Sliders" EntityType="VaranegarModel.Sliders" />
+          <EntitySet Name="SolutionGroups" EntityType="VaranegarModel.SolutionGroups" />
+          <EntitySet Name="Solutions" EntityType="VaranegarModel.Solutions" />
+          <EntitySet Name="Texts" EntityType="VaranegarModel.Texts" />
+          <EntitySet Name="Users" EntityType="VaranegarModel.Users" />
+          <AssociationSet Name="FK_AgentPreviousJobs_AgentQuestionaries" Association="VaranegarModel.FK_AgentPreviousJobs_AgentQuestionaries">
+            <End Role="AgentQuestionaries" EntitySet="AgentQuestionaries" />
+            <End Role="AgentPreviousJobs" EntitySet="AgentPreviousJobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BlogComments_Blogs" Association="VaranegarModel.FK_BlogComments_Blogs">
+            <End Role="Blogs" EntitySet="Blogs" />
+            <End Role="BlogComments" EntitySet="BlogComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Blogs_BlogGroups" Association="VaranegarModel.FK_Blogs_BlogGroups">
+            <End Role="BlogGroups" EntitySet="BlogGroups" />
+            <End Role="Blogs" EntitySet="Blogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_Province" Association="VaranegarModel.FK_City_Province">
+            <End Role="Province" EntitySet="Province" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContactUsForm_EmailRecieverRoles" Association="VaranegarModel.FK_ContactUsForm_EmailRecieverRoles">
+            <End Role="EmailRecieverRoles" EntitySet="EmailRecieverRoles" />
+            <End Role="ContactUsForm" EntitySet="ContactUsForm" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Customers_CustomerGroups" Association="VaranegarModel.FK_Customers_CustomerGroups">
+            <End Role="CustomerGroups" EntitySet="CustomerGroups" />
+            <End Role="Customers" EntitySet="Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rel_Customer_Province_Customers" Association="VaranegarModel.FK_Rel_Customer_Province_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Rel_Customer_Province" EntitySet="Rel_Customer_Province" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rel_Solutions_Customers_Customers" Association="VaranegarModel.FK_Rel_Solutions_Customers_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Rel_Solutions_Customers" EntitySet="Rel_Solutions_Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemoRequests_EmailRecieverRoles" Association="VaranegarModel.FK_DemoRequests_EmailRecieverRoles">
+            <End Role="EmailRecieverRoles" EntitySet="EmailRecieverRoles" />
+            <End Role="DemoRequests" EntitySet="DemoRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DemoRequests_FamiliarMethods" Association="VaranegarModel.FK_DemoRequests_FamiliarMethods">
+            <End Role="FamiliarMethods" EntitySet="FamiliarMethods" />
+            <End Role="DemoRequests" EntitySet="DemoRequests" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emails_EmailRecieverRoles" Association="VaranegarModel.FK_Emails_EmailRecieverRoles">
+            <End Role="EmailRecieverRoles" EntitySet="EmailRecieverRoles" />
+            <End Role="Emails" EntitySet="Emails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GalleryImages_GalleryGroups" Association="VaranegarModel.FK_GalleryImages_GalleryGroups">
+            <End Role="GalleryGroups" EntitySet="GalleryGroups" />
+            <End Role="GalleryImages" EntitySet="GalleryImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_ImageGroups" Association="VaranegarModel.FK_Images_ImageGroups">
+            <End Role="ImageGroups" EntitySet="ImageGroups" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Users" Association="VaranegarModel.FK_Images_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ProductGroups_ProductGroups" Association="VaranegarModel.FK_ProductGroups_ProductGroups">
+            <End Role="ProductGroups" EntitySet="ProductGroups" />
+            <End Role="ProductGroups1" EntitySet="ProductGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_ProductGroups" Association="VaranegarModel.FK_Products_ProductGroups">
+            <End Role="ProductGroups" EntitySet="ProductGroups" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rel_Solutions_Customers_Solutions" Association="VaranegarModel.FK_Rel_Solutions_Customers_Solutions">
+            <End Role="Solutions" EntitySet="Solutions" />
+            <End Role="Rel_Solutions_Customers" EntitySet="Rel_Solutions_Customers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_Roles" Association="VaranegarModel.FK_Users_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="Users" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceSteps_Services" Association="VaranegarModel.FK_ServiceSteps_Services">
+            <End Role="Services" EntitySet="Services" />
+            <End Role="ServiceSteps" EntitySet="ServiceSteps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ServiceStepItems_ServiceSteps" Association="VaranegarModel.FK_ServiceStepItems_ServiceSteps">
+            <End Role="ServiceSteps" EntitySet="ServiceSteps" />
+            <End Role="ServiceStepItems" EntitySet="ServiceStepItems" />
+          </AssociationSet>
+          <EntitySet Name="SeminarRequests" EntityType="VaranegarModel.SeminarRequests" />
+        </EntityContainer>
+        <EntityType Name="AgentPreviousJobs">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Guid" Nullable="false" />
+          <Property Name="fk_AgentId" Type="Guid" />
+          <Property Name="JobPlaceName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IndustryType" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="JobStartYear" Type="Int32" />
+          <Property Name="JobFinishDate" Type="Int32" />
+          <Property Name="JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobPost" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AgentQuestionaries" Relationship="VaranegarModel.FK_AgentPreviousJobs_AgentQuestionaries" FromRole="AgentPreviousJobs" ToRole="AgentQuestionaries" />
+        </EntityType>
+        <EntityType Name="AgentQuestionaries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="IsCompany" Type="Boolean" />
+          <Property Name="FullName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="BirthCerId" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="NationalCode" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="BirthPlace" Type="String" MaxLength="510" FixedLength="false" Unicode="true" />
+          <Property Name="HomeAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="260" FixedLength="false" Unicode="true" />
+          <Property Name="IsSellSoftwar" Type="Boolean" />
+          <Property Name="SellSoftwareDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyOwnership" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyPostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyEmployeeNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsHighSpeedInternet" Type="Boolean" />
+          <Property Name="IsInsurance" Type="Boolean" />
+          <Property Name="IsAgent" Type="Boolean" />
+          <Property Name="IsAgentDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="VaranegarSoftwareIntroduce" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="IsCommercialPlace" Type="Boolean" />
+          <Property Name="IsCommercialPlaceDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ReasonForDo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HowKnowUs" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="fk_CityId" Type="Int32" />
+          <Property Name="RegisterDate" Type="DateTime" Precision="3" />
+          <Property Name="Browser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ip" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Os" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AgentPreviousJobs" Relationship="VaranegarModel.FK_AgentPreviousJobs_AgentQuestionaries" FromRole="AgentQuestionaries" ToRole="AgentPreviousJobs" />
+        </EntityType>
+        <EntityType Name="BlogComments">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CommentBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CommentDate" Type="DateTime" Precision="3" />
+          <Property Name="CommentIP" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="fk_BlogID" Type="Guid" Nullable="false" />
+          <Property Name="IsValid" Type="Boolean" />
+          <Property Name="ValidationDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Blogs" Relationship="VaranegarModel.FK_BlogComments_Blogs" FromRole="BlogComments" ToRole="Blogs" />
+        </EntityType>
+        <EntityType Name="BlogGroups">
+          <Key>
+            <PropertyRef Name="BlogGroupID" />
+          </Key>
+          <Property Name="BlogGroupID" Type="Guid" Nullable="false" />
+          <Property Name="BlogGroupTitle" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="En_BlogGroupTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BlogGroupName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" />
+          <NavigationProperty Name="Blogs" Relationship="VaranegarModel.FK_Blogs_BlogGroups" FromRole="BlogGroups" ToRole="Blogs" />
+        </EntityType>
+        <EntityType Name="Blogs">
+          <Key>
+            <PropertyRef Name="BlogID" />
+          </Key>
+          <Property Name="BlogID" Type="Guid" Nullable="false" />
+          <Property Name="fk_BlogGroupID" Type="Guid" />
+          <Property Name="BlogTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="En_BlogTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BlogName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="BlogImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BlogBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_BlogBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Visit" Type="Int32" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="summeryText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_summeryText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BlogComments" Relationship="VaranegarModel.FK_BlogComments_Blogs" FromRole="Blogs" ToRole="BlogComments" />
+          <NavigationProperty Name="BlogGroups" Relationship="VaranegarModel.FK_Blogs_BlogGroups" FromRole="Blogs" ToRole="BlogGroups" />
+        </EntityType>
+        <EntityType Name="CareerForm">
+          <Key>
+            <PropertyRef Name="careerID" />
+          </Key>
+          <Property Name="careerID" Type="Guid" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="FatherName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="NationalSHCode" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="NationalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="birthDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="marriage" Type="Int32" />
+          <Property Name="childrenNumb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HomeStatus" Type="Int32" />
+          <Property Name="IsInsurance" Type="Boolean" />
+          <Property Name="MilitaryStatus" Type="Int32" />
+          <Property Name="ExpertOn" Type="Int32" />
+          <Property Name="History" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="degree" Type="Int32" />
+          <Property Name="major" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Software" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="familiarIndustry" Type="Int32" />
+          <Property Name="languagesRate" Type="Int32" />
+          <Property Name="howtoFind" Type="Int32" />
+          <Property Name="howtoFindDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="OvertimeWork" Type="Boolean" />
+          <Property Name="NightWork" Type="Boolean" />
+          <Property Name="missionWork" Type="Boolean" />
+          <Property Name="WeekendWork" Type="Boolean" />
+          <Property Name="Surgery" Type="Boolean" />
+          <Property Name="Conviction" Type="Boolean" />
+          <Property Name="Smoking" Type="Boolean" />
+          <Property Name="Warranty" Type="Boolean" />
+          <Property Name="WorkingType" Type="Int32" />
+          <Property Name="FinalDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sallary" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="resumeFile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsVisited" Type="Boolean" />
+          <Property Name="RegisterDate" Type="DateTime" Precision="3" />
+          <Property Name="Browser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ip" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Os" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="OtherExpertTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="OtherFamiliar" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="CityID" />
+          </Key>
+          <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProvinceID" Type="Int32" Nullable="false" />
+          <Property Name="CityName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Center" Type="Boolean" />
+          <Property Name="EN_CityName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Rus_CityName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="China_CityName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Province" Relationship="VaranegarModel.FK_City_Province" FromRole="City" ToRole="Province" />
+        </EntityType>
+        <EntityType Name="ContactUsForm">
+          <Key>
+            <PropertyRef Name="contactid" />
+          </Key>
+          <Property Name="contactid" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="fk_RecieverID" Type="Int32" />
+          <Property Name="CommentBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CommentDate" Type="DateTime" Precision="3" />
+          <Property Name="CommentIP" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="EmailRecieverRoles" Relationship="VaranegarModel.FK_ContactUsForm_EmailRecieverRoles" FromRole="ContactUsForm" ToRole="EmailRecieverRoles" />
+        </EntityType>
+        <EntityType Name="ContactUsFormRecievers">
+          <Key>
+            <PropertyRef Name="RecieverID" />
+          </Key>
+          <Property Name="RecieverID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="RecieverTitle" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RecieverEmail" Type="String" MaxLength="260" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="CustomerGroups">
+          <Key>
+            <PropertyRef Name="CustomerGroupID" />
+          </Key>
+          <Property Name="CustomerGroupID" Type="Guid" Nullable="false" />
+          <Property Name="CustomerGroupTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="En_CustomerGroupTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Customers" Relationship="VaranegarModel.FK_Customers_CustomerGroups" FromRole="CustomerGroups" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomersID" />
+          </Key>
+          <Property Name="CustomersID" Type="Guid" Nullable="false" />
+          <Property Name="fk_CustomerGroupID" Type="Guid" Nullable="false" />
+          <Property Name="CustomerTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="En_CustomerTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SuccessHistory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_SuccessHistory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsInHome" Type="Boolean" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="submitDate" Type="DateTime" Precision="3" />
+          <Property Name="ImgLogo" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="StartMonth" Type="Int32" />
+          <Property Name="StartYear" Type="Int32" />
+          <Property Name="FinishMonth" Type="Int32" />
+          <Property Name="FinishYear" Type="Int32" />
+          <Property Name="BranchNumber" Type="Int32" />
+          <Property Name="ImgLogo_Thumb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CustomerGroups" Relationship="VaranegarModel.FK_Customers_CustomerGroups" FromRole="Customers" ToRole="CustomerGroups" />
+          <NavigationProperty Name="Rel_Customer_Province" Relationship="VaranegarModel.FK_Rel_Customer_Province_Customers" FromRole="Customers" ToRole="Rel_Customer_Province" />
+          <NavigationProperty Name="Rel_Solutions_Customers" Relationship="VaranegarModel.FK_Rel_Solutions_Customers_Customers" FromRole="Customers" ToRole="Rel_Solutions_Customers" />
+        </EntityType>
+        <EntityType Name="DemoRequests">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="160" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Field" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="Post" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="fk_FamiliarMethodID" Type="Int32" Nullable="false" />
+          <Property Name="FinalDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsVisited" Type="Boolean" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Browser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ip" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Os" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="fk_RecieverID" Type="Int32" />
+          <NavigationProperty Name="EmailRecieverRoles" Relationship="VaranegarModel.FK_DemoRequests_EmailRecieverRoles" FromRole="DemoRequests" ToRole="EmailRecieverRoles" />
+          <NavigationProperty Name="FamiliarMethods" Relationship="VaranegarModel.FK_DemoRequests_FamiliarMethods" FromRole="DemoRequests" ToRole="FamiliarMethods" />
+        </EntityType>
+        <EntityType Name="EmailRecieverRoles">
+          <Key>
+            <PropertyRef Name="EmailRecieverRoleID" />
+          </Key>
+          <Property Name="EmailRecieverRoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="groupdid" Type="Int32" />
+          <NavigationProperty Name="ContactUsForm" Relationship="VaranegarModel.FK_ContactUsForm_EmailRecieverRoles" FromRole="EmailRecieverRoles" ToRole="ContactUsForm" />
+          <NavigationProperty Name="DemoRequests" Relationship="VaranegarModel.FK_DemoRequests_EmailRecieverRoles" FromRole="EmailRecieverRoles" ToRole="DemoRequests" />
+          <NavigationProperty Name="Emails" Relationship="VaranegarModel.FK_Emails_EmailRecieverRoles" FromRole="EmailRecieverRoles" ToRole="Emails" />
+        </EntityType>
+        <EntityType Name="Emails">
+          <Key>
+            <PropertyRef Name="EmailId" />
+          </Key>
+          <Property Name="EmailId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fk_RecieverRoleID" Type="Int32" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="EmailRecieverRoles" Relationship="VaranegarModel.FK_Emails_EmailRecieverRoles" FromRole="Emails" ToRole="EmailRecieverRoles" />
+        </EntityType>
+        <EntityType Name="FamiliarMethods">
+          <Key>
+            <PropertyRef Name="FamiliarMethodID" />
+          </Key>
+          <Property Name="FamiliarMethodID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FamiliarMethodTitle" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DemoRequests" Relationship="VaranegarModel.FK_DemoRequests_FamiliarMethods" FromRole="FamiliarMethods" ToRole="DemoRequests" />
+        </EntityType>
+        <EntityType Name="GalleryGroups">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="ImageUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="GalleryImages" Relationship="VaranegarModel.FK_GalleryImages_GalleryGroups" FromRole="GalleryGroups" ToRole="GalleryImages" />
+        </EntityType>
+        <EntityType Name="GalleryImages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="fk_GalleryId" Type="Guid" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Summery" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VideoLink" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" />
+          <NavigationProperty Name="GalleryGroups" Relationship="VaranegarModel.FK_GalleryImages_GalleryGroups" FromRole="GalleryImages" ToRole="GalleryGroups" />
+        </EntityType>
+        <EntityType Name="ImageGroups">
+          <Key>
+            <PropertyRef Name="ImageGroupID" />
+          </Key>
+          <Property Name="ImageGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Images" Relationship="VaranegarModel.FK_Images_ImageGroups" FromRole="ImageGroups" ToRole="Images" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImageTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ImgUrlAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ImgLastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateUserID" Type="Int32" />
+          <Property Name="fk_ImageGroupID" Type="Int32" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="ImageGroups" Relationship="VaranegarModel.FK_Images_ImageGroups" FromRole="Images" ToRole="ImageGroups" />
+          <NavigationProperty Name="Users" Relationship="VaranegarModel.FK_Images_Users" FromRole="Images" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Log_Errors">
+          <Key>
+            <PropertyRef Name="ErrorID" />
+          </Key>
+          <Property Name="ErrorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ErrorDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ErrorIp" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="RefrallPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="browser" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="OS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Log_SearchQueries">
+          <Key>
+            <PropertyRef Name="SearchID" />
+          </Key>
+          <Property Name="SearchID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SearchQuery" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SearchDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SearchIp" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="RefrallPage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="browser" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="OS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Managers">
+          <Key>
+            <PropertyRef Name="ManagerID" />
+          </Key>
+          <Property Name="ManagerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+          <Property Name="ManagerTitle" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerPost" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="En_ManagerTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="En_ManagerPost" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="En_ManagerDesc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerImg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LinkedinLink" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EmailLink" Type="String" MaxLength="260" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserSubmited" Type="Int32" Nullable="false" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UserLastUpdated" Type="Int32" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="deleteDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="NewsLetters">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="SubmitIP" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Browser" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="OS" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ProductGroups">
+          <Key>
+            <PropertyRef Name="ProductGroupID" />
+          </Key>
+          <Property Name="ProductGroupID" Type="Guid" Nullable="false" />
+          <Property Name="ProductGroupTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProductGroupName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ProductGroupImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductGroupDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_ProductGroupDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_ProductGroupTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProductGroupSummery" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="En_ProductGroupSummery" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="fk_ProductGroupID" Type="Guid" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDraft" Type="Boolean" />
+          <Property Name="ProductGroupDesc_Draft" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_ProductGroupDesc_Draft" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="ProductGroups1" Relationship="VaranegarModel.FK_ProductGroups_ProductGroups" FromRole="ProductGroups" ToRole="ProductGroups1" />
+          <NavigationProperty Name="ProductGroups2" Relationship="VaranegarModel.FK_ProductGroups_ProductGroups" FromRole="ProductGroups1" ToRole="ProductGroups" />
+          <NavigationProperty Name="Products" Relationship="VaranegarModel.FK_Products_ProductGroups" FromRole="ProductGroups" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Guid" Nullable="false" />
+          <Property Name="ProductTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="En_ProductTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ProductSumery" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="En_ProductSumery" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProductDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_ProductDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ProductImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fk_ProductGroupID" Type="Guid" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="submitDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="ProductImage_Thumb" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="ProductGroups" Relationship="VaranegarModel.FK_Products_ProductGroups" FromRole="Products" ToRole="ProductGroups" />
+        </EntityType>
+        <EntityType Name="Province">
+          <Key>
+            <PropertyRef Name="ProvinceID" />
+          </Key>
+          <Property Name="ProvinceID" Type="Int32" Nullable="false" />
+          <Property Name="ProvinceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EN_ProvinceName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Rus_ProvinceName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="China_ProvinceName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="City" Relationship="VaranegarModel.FK_City_Province" FromRole="Province" ToRole="City" />
+        </EntityType>
+        <EntityType Name="Rel_Customer_Province">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_ProvinceID" Type="Int32" Nullable="false" />
+          <Property Name="fk_CustomerID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="VaranegarModel.FK_Rel_Customer_Province_Customers" FromRole="Rel_Customer_Province" ToRole="Customers" />
+        </EntityType>
+        <EntityType Name="Rel_Solutions_Customers">
+          <Key>
+            <PropertyRef Name="SolutionCustomerID" />
+          </Key>
+          <Property Name="SolutionCustomerID" Type="Guid" Nullable="false" />
+          <Property Name="fk_SolutionID" Type="Guid" Nullable="false" />
+          <Property Name="fk_CustomerID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Customers" Relationship="VaranegarModel.FK_Rel_Solutions_Customers_Customers" FromRole="Rel_Solutions_Customers" ToRole="Customers" />
+          <NavigationProperty Name="Solutions" Relationship="VaranegarModel.FK_Rel_Solutions_Customers_Solutions" FromRole="Rel_Solutions_Customers" ToRole="Solutions" />
+        </EntityType>
+        <EntityType Name="Resumes">
+          <Key>
+            <PropertyRef Name="resumeid" />
+          </Key>
+          <Property Name="resumeid" Type="Guid" Nullable="false" />
+          <Property Name="resumeFile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="submitIP" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="RoleTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="VaranegarModel.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Services">
+          <Key>
+            <PropertyRef Name="ServiceID" />
+          </Key>
+          <Property Name="ServiceID" Type="Guid" Nullable="false" />
+          <Property Name="ServiceTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="En_ServiceTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ServiceDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_ServiceDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="HeaderImg" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SmallDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_SmallDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ServiceSteps" Relationship="VaranegarModel.FK_ServiceSteps_Services" FromRole="Services" ToRole="ServiceSteps" />
+        </EntityType>
+        <EntityType Name="ServiceStepItems">
+          <Key>
+            <PropertyRef Name="ServiceStepItemID" />
+          </Key>
+          <Property Name="ServiceStepItemID" Type="Guid" Nullable="false" />
+          <Property Name="ServiceStepItemTitle" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="En_ServiceStepItemTitle" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+          <Property Name="fk_ServiceStepID" Type="Guid" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ServiceSteps" Relationship="VaranegarModel.FK_ServiceStepItems_ServiceSteps" FromRole="ServiceStepItems" ToRole="ServiceSteps" />
+        </EntityType>
+        <EntityType Name="ServiceSteps">
+          <Key>
+            <PropertyRef Name="ServiceStepID" />
+          </Key>
+          <Property Name="ServiceStepID" Type="Guid" Nullable="false" />
+          <Property Name="ServiceStepTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="En_ServiceStepTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="fk_ServiceID" Type="Guid" />
+          <Property Name="ServiceStepImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ServiceStepDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_ServiceStepDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="ServiceStepName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SmallDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_SmallDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Services" Relationship="VaranegarModel.FK_ServiceSteps_Services" FromRole="ServiceSteps" ToRole="Services" />
+          <NavigationProperty Name="ServiceStepItems" Relationship="VaranegarModel.FK_ServiceStepItems_ServiceSteps" FromRole="ServiceSteps" ToRole="ServiceStepItems" />
+        </EntityType>
+        <EntityType Name="Sliders">
+          <Key>
+            <PropertyRef Name="SliderID" />
+          </Key>
+          <Property Name="SliderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SliderTitle" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SmallText" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="BigText" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="LinkText" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LinkAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SliderImageUrl" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="Priority" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SolutionGroups">
+          <Key>
+            <PropertyRef Name="SolutionGroupID" />
+          </Key>
+          <Property Name="SolutionGroupID" Type="Guid" Nullable="false" />
+          <Property Name="SolutionGroupTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="En_SolutionGroupTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SolutionGroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Solutions">
+          <Key>
+            <PropertyRef Name="SolutionID" />
+          </Key>
+          <Property Name="SolutionID" Type="Guid" Nullable="false" />
+          <Property Name="fk_SolutionGroupID" Type="Guid" />
+          <Property Name="SolutionTitle" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="En_SolutionTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SolutionName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ImgBannerFile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BannerText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="En_BannerText" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ProblemDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_ProblemDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="Priority" Type="Int32" />
+          <Property Name="ProductInSupply" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Rel_Solutions_Customers" Relationship="VaranegarModel.FK_Rel_Solutions_Customers_Solutions" FromRole="Solutions" ToRole="Rel_Solutions_Customers" />
+        </EntityType>
+        <EntityType Name="Texts">
+          <Key>
+            <PropertyRef Name="TextID" />
+          </Key>
+          <Property Name="TextID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TextTitle" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="TextBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="En_TextTitle" Type="String" MaxLength="1500" FixedLength="false" Unicode="true" />
+          <Property Name="En_TextBody" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SubmitDate" Type="DateTime" Precision="3" />
+          <Property Name="LastUpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="groupid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="LastFamily" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="fk_RoleID" Type="Int32" />
+          <Property Name="RegisterDate" Type="DateTime" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterIP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Images" Relationship="VaranegarModel.FK_Images_Users" FromRole="Users" ToRole="Images" />
+          <NavigationProperty Name="Roles" Relationship="VaranegarModel.FK_Users_Roles" FromRole="Users" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK_AgentPreviousJobs_AgentQuestionaries">
+          <End Type="VaranegarModel.AgentQuestionaries" Role="AgentQuestionaries" Multiplicity="0..1" />
+          <End Type="VaranegarModel.AgentPreviousJobs" Role="AgentPreviousJobs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgentQuestionaries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AgentPreviousJobs">
+              <PropertyRef Name="fk_AgentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BlogComments_Blogs">
+          <End Type="VaranegarModel.Blogs" Role="Blogs" Multiplicity="1" />
+          <End Type="VaranegarModel.BlogComments" Role="BlogComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Blogs">
+              <PropertyRef Name="BlogID" />
+            </Principal>
+            <Dependent Role="BlogComments">
+              <PropertyRef Name="fk_BlogID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Blogs_BlogGroups">
+          <End Type="VaranegarModel.BlogGroups" Role="BlogGroups" Multiplicity="0..1" />
+          <End Type="VaranegarModel.Blogs" Role="Blogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BlogGroups">
+              <PropertyRef Name="BlogGroupID" />
+            </Principal>
+            <Dependent Role="Blogs">
+              <PropertyRef Name="fk_BlogGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_Province">
+          <End Type="VaranegarModel.Province" Role="Province" Multiplicity="1" />
+          <End Type="VaranegarModel.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Province">
+              <PropertyRef Name="ProvinceID" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="ProvinceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContactUsForm_EmailRecieverRoles">
+          <End Type="VaranegarModel.EmailRecieverRoles" Role="EmailRecieverRoles" Multiplicity="0..1" />
+          <End Type="VaranegarModel.ContactUsForm" Role="ContactUsForm" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmailRecieverRoles">
+              <PropertyRef Name="EmailRecieverRoleID" />
+            </Principal>
+            <Dependent Role="ContactUsForm">
+              <PropertyRef Name="fk_RecieverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Customers_CustomerGroups">
+          <End Type="VaranegarModel.CustomerGroups" Role="CustomerGroups" Multiplicity="1" />
+          <End Type="VaranegarModel.Customers" Role="Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CustomerGroups">
+              <PropertyRef Name="CustomerGroupID" />
+            </Principal>
+            <Dependent Role="Customers">
+              <PropertyRef Name="fk_CustomerGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rel_Customer_Province_Customers">
+          <End Type="VaranegarModel.Customers" Role="Customers" Multiplicity="1" />
+          <End Type="VaranegarModel.Rel_Customer_Province" Role="Rel_Customer_Province" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomersID" />
+            </Principal>
+            <Dependent Role="Rel_Customer_Province">
+              <PropertyRef Name="fk_CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rel_Solutions_Customers_Customers">
+          <End Type="VaranegarModel.Customers" Role="Customers" Multiplicity="1" />
+          <End Type="VaranegarModel.Rel_Solutions_Customers" Role="Rel_Solutions_Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="CustomersID" />
+            </Principal>
+            <Dependent Role="Rel_Solutions_Customers">
+              <PropertyRef Name="fk_CustomerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemoRequests_EmailRecieverRoles">
+          <End Type="VaranegarModel.EmailRecieverRoles" Role="EmailRecieverRoles" Multiplicity="0..1" />
+          <End Type="VaranegarModel.DemoRequests" Role="DemoRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmailRecieverRoles">
+              <PropertyRef Name="EmailRecieverRoleID" />
+            </Principal>
+            <Dependent Role="DemoRequests">
+              <PropertyRef Name="fk_RecieverID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DemoRequests_FamiliarMethods">
+          <End Type="VaranegarModel.FamiliarMethods" Role="FamiliarMethods" Multiplicity="1" />
+          <End Type="VaranegarModel.DemoRequests" Role="DemoRequests" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FamiliarMethods">
+              <PropertyRef Name="FamiliarMethodID" />
+            </Principal>
+            <Dependent Role="DemoRequests">
+              <PropertyRef Name="fk_FamiliarMethodID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emails_EmailRecieverRoles">
+          <End Type="VaranegarModel.EmailRecieverRoles" Role="EmailRecieverRoles" Multiplicity="0..1" />
+          <End Type="VaranegarModel.Emails" Role="Emails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmailRecieverRoles">
+              <PropertyRef Name="EmailRecieverRoleID" />
+            </Principal>
+            <Dependent Role="Emails">
+              <PropertyRef Name="fk_RecieverRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GalleryImages_GalleryGroups">
+          <End Type="VaranegarModel.GalleryGroups" Role="GalleryGroups" Multiplicity="0..1" />
+          <End Type="VaranegarModel.GalleryImages" Role="GalleryImages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GalleryGroups">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GalleryImages">
+              <PropertyRef Name="fk_GalleryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_ImageGroups">
+          <End Type="VaranegarModel.ImageGroups" Role="ImageGroups" Multiplicity="0..1" />
+          <End Type="VaranegarModel.Images" Role="Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImageGroups">
+              <PropertyRef Name="ImageGroupID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="fk_ImageGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Users">
+          <End Type="VaranegarModel.Users" Role="Users" Multiplicity="0..1" />
+          <End Type="VaranegarModel.Images" Role="Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="LastUpdateUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ProductGroups_ProductGroups">
+          <End Type="VaranegarModel.ProductGroups" Role="ProductGroups" Multiplicity="0..1" />
+          <End Type="VaranegarModel.ProductGroups" Role="ProductGroups1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroups">
+              <PropertyRef Name="ProductGroupID" />
+            </Principal>
+            <Dependent Role="ProductGroups1">
+              <PropertyRef Name="fk_ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_ProductGroups">
+          <End Type="VaranegarModel.ProductGroups" Role="ProductGroups" Multiplicity="0..1" />
+          <End Type="VaranegarModel.Products" Role="Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProductGroups">
+              <PropertyRef Name="ProductGroupID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="fk_ProductGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rel_Solutions_Customers_Solutions">
+          <End Type="VaranegarModel.Solutions" Role="Solutions" Multiplicity="1" />
+          <End Type="VaranegarModel.Rel_Solutions_Customers" Role="Rel_Solutions_Customers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solutions">
+              <PropertyRef Name="SolutionID" />
+            </Principal>
+            <Dependent Role="Rel_Solutions_Customers">
+              <PropertyRef Name="fk_SolutionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_Roles">
+          <End Type="VaranegarModel.Roles" Role="Roles" Multiplicity="0..1" />
+          <End Type="VaranegarModel.Users" Role="Users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="Users">
+              <PropertyRef Name="fk_RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceSteps_Services">
+          <End Type="VaranegarModel.Services" Role="Services" Multiplicity="0..1" />
+          <End Type="VaranegarModel.ServiceSteps" Role="ServiceSteps" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Services">
+              <PropertyRef Name="ServiceID" />
+            </Principal>
+            <Dependent Role="ServiceSteps">
+              <PropertyRef Name="fk_ServiceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ServiceStepItems_ServiceSteps">
+          <End Type="VaranegarModel.ServiceSteps" Role="ServiceSteps" Multiplicity="0..1" />
+          <End Type="VaranegarModel.ServiceStepItems" Role="ServiceStepItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ServiceSteps">
+              <PropertyRef Name="ServiceStepID" />
+            </Principal>
+            <Dependent Role="ServiceStepItems">
+              <PropertyRef Name="fk_ServiceStepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SeminarRequests">
+          <Key>
+            <PropertyRef Name="RequestID" />
+          </Key>
+          <Property Name="RequestID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="160" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Mobile" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="NationalId" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Browser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ip" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Os" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="CustomerCode" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="VaranegarModelStoreContainer" CdmEntityContainer="VaranegarEntities">
+          <EntitySetMapping Name="AgentPreviousJobs">
+            <EntityTypeMapping TypeName="VaranegarModel.AgentPreviousJobs">
+              <MappingFragment StoreEntitySet="AgentPreviousJobs">
+                <ScalarProperty Name="JobPost" ColumnName="JobPost" />
+                <ScalarProperty Name="JobDescription" ColumnName="JobDescription" />
+                <ScalarProperty Name="JobFinishDate" ColumnName="JobFinishDate" />
+                <ScalarProperty Name="JobStartYear" ColumnName="JobStartYear" />
+                <ScalarProperty Name="IndustryType" ColumnName="IndustryType" />
+                <ScalarProperty Name="JobPlaceName" ColumnName="JobPlaceName" />
+                <ScalarProperty Name="fk_AgentId" ColumnName="fk_AgentId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgentQuestionaries">
+            <EntityTypeMapping TypeName="VaranegarModel.AgentQuestionaries">
+              <MappingFragment StoreEntitySet="AgentQuestionaries">
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Os" ColumnName="Os" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="Browser" ColumnName="Browser" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="fk_CityId" ColumnName="fk_CityId" />
+                <ScalarProperty Name="HowKnowUs" ColumnName="HowKnowUs" />
+                <ScalarProperty Name="ReasonForDo" ColumnName="ReasonForDo" />
+                <ScalarProperty Name="IsCommercialPlaceDesc" ColumnName="IsCommercialPlaceDesc" />
+                <ScalarProperty Name="IsCommercialPlace" ColumnName="IsCommercialPlace" />
+                <ScalarProperty Name="VaranegarSoftwareIntroduce" ColumnName="VaranegarSoftwareIntroduce" />
+                <ScalarProperty Name="IsAgentDesc" ColumnName="IsAgentDesc" />
+                <ScalarProperty Name="IsAgent" ColumnName="IsAgent" />
+                <ScalarProperty Name="IsInsurance" ColumnName="IsInsurance" />
+                <ScalarProperty Name="IsHighSpeedInternet" ColumnName="IsHighSpeedInternet" />
+                <ScalarProperty Name="CompanyEmployeeNumber" ColumnName="CompanyEmployeeNumber" />
+                <ScalarProperty Name="CompanyPostalCode" ColumnName="CompanyPostalCode" />
+                <ScalarProperty Name="CompanyArea" ColumnName="CompanyArea" />
+                <ScalarProperty Name="CompanyOwnership" ColumnName="CompanyOwnership" />
+                <ScalarProperty Name="CompanyPhone" ColumnName="CompanyPhone" />
+                <ScalarProperty Name="CompanyAddress" ColumnName="CompanyAddress" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="SellSoftwareDesc" ColumnName="SellSoftwareDesc" />
+                <ScalarProperty Name="IsSellSoftwar" ColumnName="IsSellSoftwar" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="HomeAddress" ColumnName="HomeAddress" />
+                <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+                <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+                <ScalarProperty Name="BirthCerId" ColumnName="BirthCerId" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="IsCompany" ColumnName="IsCompany" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogComments">
+            <EntityTypeMapping TypeName="VaranegarModel.BlogComments">
+              <MappingFragment StoreEntitySet="BlogComments">
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="ValidationDate" ColumnName="ValidationDate" />
+                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+                <ScalarProperty Name="fk_BlogID" ColumnName="fk_BlogID" />
+                <ScalarProperty Name="CommentIP" ColumnName="CommentIP" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="CommentBody" ColumnName="CommentBody" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BlogGroups">
+            <EntityTypeMapping TypeName="VaranegarModel.BlogGroups">
+              <MappingFragment StoreEntitySet="BlogGroups">
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="BlogGroupName" ColumnName="BlogGroupName" />
+                <ScalarProperty Name="En_BlogGroupTitle" ColumnName="En_BlogGroupTitle" />
+                <ScalarProperty Name="BlogGroupTitle" ColumnName="BlogGroupTitle" />
+                <ScalarProperty Name="BlogGroupID" ColumnName="BlogGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Blogs">
+            <EntityTypeMapping TypeName="VaranegarModel.Blogs">
+              <MappingFragment StoreEntitySet="Blogs">
+                <ScalarProperty Name="En_summeryText" ColumnName="En_summeryText" />
+                <ScalarProperty Name="summeryText" ColumnName="summeryText" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Visit" ColumnName="Visit" />
+                <ScalarProperty Name="En_BlogBody" ColumnName="En_BlogBody" />
+                <ScalarProperty Name="BlogBody" ColumnName="BlogBody" />
+                <ScalarProperty Name="BlogImage" ColumnName="BlogImage" />
+                <ScalarProperty Name="BlogName" ColumnName="BlogName" />
+                <ScalarProperty Name="En_BlogTitle" ColumnName="En_BlogTitle" />
+                <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+                <ScalarProperty Name="fk_BlogGroupID" ColumnName="fk_BlogGroupID" />
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CareerForm">
+            <EntityTypeMapping TypeName="VaranegarModel.CareerForm">
+              <MappingFragment StoreEntitySet="CareerForm">
+                <ScalarProperty Name="OtherFamiliar" ColumnName="OtherFamiliar" />
+                <ScalarProperty Name="OtherExpertTitle" ColumnName="OtherExpertTitle" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Os" ColumnName="Os" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="Browser" ColumnName="Browser" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="IsVisited" ColumnName="IsVisited" />
+                <ScalarProperty Name="resumeFile" ColumnName="resumeFile" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="sallary" ColumnName="sallary" />
+                <ScalarProperty Name="FinalDesc" ColumnName="FinalDesc" />
+                <ScalarProperty Name="WorkingType" ColumnName="WorkingType" />
+                <ScalarProperty Name="Warranty" ColumnName="Warranty" />
+                <ScalarProperty Name="Smoking" ColumnName="Smoking" />
+                <ScalarProperty Name="Conviction" ColumnName="Conviction" />
+                <ScalarProperty Name="Surgery" ColumnName="Surgery" />
+                <ScalarProperty Name="WeekendWork" ColumnName="WeekendWork" />
+                <ScalarProperty Name="missionWork" ColumnName="missionWork" />
+                <ScalarProperty Name="NightWork" ColumnName="NightWork" />
+                <ScalarProperty Name="OvertimeWork" ColumnName="OvertimeWork" />
+                <ScalarProperty Name="howtoFindDesc" ColumnName="howtoFindDesc" />
+                <ScalarProperty Name="howtoFind" ColumnName="howtoFind" />
+                <ScalarProperty Name="languagesRate" ColumnName="languagesRate" />
+                <ScalarProperty Name="familiarIndustry" ColumnName="familiarIndustry" />
+                <ScalarProperty Name="Software" ColumnName="Software" />
+                <ScalarProperty Name="major" ColumnName="major" />
+                <ScalarProperty Name="degree" ColumnName="degree" />
+                <ScalarProperty Name="History" ColumnName="History" />
+                <ScalarProperty Name="ExpertOn" ColumnName="ExpertOn" />
+                <ScalarProperty Name="MilitaryStatus" ColumnName="MilitaryStatus" />
+                <ScalarProperty Name="IsInsurance" ColumnName="IsInsurance" />
+                <ScalarProperty Name="HomeStatus" ColumnName="HomeStatus" />
+                <ScalarProperty Name="childrenNumb" ColumnName="childrenNumb" />
+                <ScalarProperty Name="marriage" ColumnName="marriage" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+                <ScalarProperty Name="birthDate" ColumnName="birthDate" />
+                <ScalarProperty Name="NationalCode" ColumnName="NationalCode" />
+                <ScalarProperty Name="NationalSHCode" ColumnName="NationalSHCode" />
+                <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="careerID" ColumnName="careerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="City">
+            <EntityTypeMapping TypeName="VaranegarModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="China_CityName" ColumnName="China_CityName" />
+                <ScalarProperty Name="Rus_CityName" ColumnName="Rus_CityName" />
+                <ScalarProperty Name="EN_CityName" ColumnName="EN_CityName" />
+                <ScalarProperty Name="Center" ColumnName="Center" />
+                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+                <ScalarProperty Name="CityID" ColumnName="CityID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactUsForm">
+            <EntityTypeMapping TypeName="VaranegarModel.ContactUsForm">
+              <MappingFragment StoreEntitySet="ContactUsForm">
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="CommentIP" ColumnName="CommentIP" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="CommentBody" ColumnName="CommentBody" />
+                <ScalarProperty Name="fk_RecieverID" ColumnName="fk_RecieverID" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="contactid" ColumnName="contactid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactUsFormRecievers">
+            <EntityTypeMapping TypeName="VaranegarModel.ContactUsFormRecievers">
+              <MappingFragment StoreEntitySet="ContactUsFormRecievers">
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="RecieverEmail" ColumnName="RecieverEmail" />
+                <ScalarProperty Name="RecieverTitle" ColumnName="RecieverTitle" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="RecieverID" ColumnName="RecieverID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustomerGroups">
+            <EntityTypeMapping TypeName="VaranegarModel.CustomerGroups">
+              <MappingFragment StoreEntitySet="CustomerGroups">
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="CustomerGroupName" ColumnName="CustomerGroupName" />
+                <ScalarProperty Name="En_CustomerGroupTitle" ColumnName="En_CustomerGroupTitle" />
+                <ScalarProperty Name="CustomerGroupTitle" ColumnName="CustomerGroupTitle" />
+                <ScalarProperty Name="CustomerGroupID" ColumnName="CustomerGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="VaranegarModel.Customers">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="ImgLogo_Thumb" ColumnName="ImgLogo_Thumb" />
+                <ScalarProperty Name="BranchNumber" ColumnName="BranchNumber" />
+                <ScalarProperty Name="FinishYear" ColumnName="FinishYear" />
+                <ScalarProperty Name="FinishMonth" ColumnName="FinishMonth" />
+                <ScalarProperty Name="StartYear" ColumnName="StartYear" />
+                <ScalarProperty Name="StartMonth" ColumnName="StartMonth" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="ImgLogo" ColumnName="ImgLogo" />
+                <ScalarProperty Name="submitDate" ColumnName="submitDate" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsInHome" ColumnName="IsInHome" />
+                <ScalarProperty Name="En_SuccessHistory" ColumnName="En_SuccessHistory" />
+                <ScalarProperty Name="SuccessHistory" ColumnName="SuccessHistory" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="En_CustomerTitle" ColumnName="En_CustomerTitle" />
+                <ScalarProperty Name="CustomerTitle" ColumnName="CustomerTitle" />
+                <ScalarProperty Name="fk_CustomerGroupID" ColumnName="fk_CustomerGroupID" />
+                <ScalarProperty Name="CustomersID" ColumnName="CustomersID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DemoRequests">
+            <EntityTypeMapping TypeName="VaranegarModel.DemoRequests">
+              <MappingFragment StoreEntitySet="DemoRequests">
+                <ScalarProperty Name="fk_RecieverID" ColumnName="fk_RecieverID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Os" ColumnName="Os" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="Browser" ColumnName="Browser" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="IsVisited" ColumnName="IsVisited" />
+                <ScalarProperty Name="FinalDesc" ColumnName="FinalDesc" />
+                <ScalarProperty Name="fk_FamiliarMethodID" ColumnName="fk_FamiliarMethodID" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Post" ColumnName="Post" />
+                <ScalarProperty Name="Field" ColumnName="Field" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmailRecieverRoles">
+            <EntityTypeMapping TypeName="VaranegarModel.EmailRecieverRoles">
+              <MappingFragment StoreEntitySet="EmailRecieverRoles">
+                <ScalarProperty Name="groupdid" ColumnName="groupdid" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="EmailRecieverRoleID" ColumnName="EmailRecieverRoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emails">
+            <EntityTypeMapping TypeName="VaranegarModel.Emails">
+              <MappingFragment StoreEntitySet="Emails">
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="fk_RecieverRoleID" ColumnName="fk_RecieverRoleID" />
+                <ScalarProperty Name="EmailTitle" ColumnName="EmailTitle" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FamiliarMethods">
+            <EntityTypeMapping TypeName="VaranegarModel.FamiliarMethods">
+              <MappingFragment StoreEntitySet="FamiliarMethods">
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="FamiliarMethodTitle" ColumnName="FamiliarMethodTitle" />
+                <ScalarProperty Name="FamiliarMethodID" ColumnName="FamiliarMethodID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GalleryGroups">
+            <EntityTypeMapping TypeName="VaranegarModel.GalleryGroups">
+              <MappingFragment StoreEntitySet="GalleryGroups">
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GalleryImages">
+            <EntityTypeMapping TypeName="VaranegarModel.GalleryImages">
+              <MappingFragment StoreEntitySet="GalleryImages">
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
+                <ScalarProperty Name="Summery" ColumnName="Summery" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="fk_GalleryId" ColumnName="fk_GalleryId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImageGroups">
+            <EntityTypeMapping TypeName="VaranegarModel.ImageGroups">
+              <MappingFragment StoreEntitySet="ImageGroups">
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ImageGroupID" ColumnName="ImageGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="VaranegarModel.Images">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="fk_ImageGroupID" ColumnName="fk_ImageGroupID" />
+                <ScalarProperty Name="LastUpdateUserID" ColumnName="LastUpdateUserID" />
+                <ScalarProperty Name="ImgLastUpdateDate" ColumnName="ImgLastUpdateDate" />
+                <ScalarProperty Name="ImgUrlAddress" ColumnName="ImgUrlAddress" />
+                <ScalarProperty Name="ImageTitle" ColumnName="ImageTitle" />
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log_Errors">
+            <EntityTypeMapping TypeName="VaranegarModel.Log_Errors">
+              <MappingFragment StoreEntitySet="Log_Errors">
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="browser" ColumnName="browser" />
+                <ScalarProperty Name="RefrallPage" ColumnName="RefrallPage" />
+                <ScalarProperty Name="ErrorIp" ColumnName="ErrorIp" />
+                <ScalarProperty Name="ErrorDate" ColumnName="ErrorDate" />
+                <ScalarProperty Name="ErrorID" ColumnName="ErrorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log_SearchQueries">
+            <EntityTypeMapping TypeName="VaranegarModel.Log_SearchQueries">
+              <MappingFragment StoreEntitySet="Log_SearchQueries">
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="browser" ColumnName="browser" />
+                <ScalarProperty Name="RefrallPage" ColumnName="RefrallPage" />
+                <ScalarProperty Name="SearchIp" ColumnName="SearchIp" />
+                <ScalarProperty Name="SearchDate" ColumnName="SearchDate" />
+                <ScalarProperty Name="SearchQuery" ColumnName="SearchQuery" />
+                <ScalarProperty Name="SearchID" ColumnName="SearchID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Managers">
+            <EntityTypeMapping TypeName="VaranegarModel.Managers">
+              <MappingFragment StoreEntitySet="Managers">
+                <ScalarProperty Name="deleteDate" ColumnName="deleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="UserLastUpdated" ColumnName="UserLastUpdated" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="UserSubmited" ColumnName="UserSubmited" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="EmailLink" ColumnName="EmailLink" />
+                <ScalarProperty Name="LinkedinLink" ColumnName="LinkedinLink" />
+                <ScalarProperty Name="ManagerImg" ColumnName="ManagerImg" />
+                <ScalarProperty Name="En_ManagerDesc" ColumnName="En_ManagerDesc" />
+                <ScalarProperty Name="En_ManagerPost" ColumnName="En_ManagerPost" />
+                <ScalarProperty Name="En_ManagerTitle" ColumnName="En_ManagerTitle" />
+                <ScalarProperty Name="ManagerDesc" ColumnName="ManagerDesc" />
+                <ScalarProperty Name="ManagerPost" ColumnName="ManagerPost" />
+                <ScalarProperty Name="ManagerTitle" ColumnName="ManagerTitle" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NewsLetters">
+            <EntityTypeMapping TypeName="VaranegarModel.NewsLetters">
+              <MappingFragment StoreEntitySet="NewsLetters">
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="OS" ColumnName="OS" />
+                <ScalarProperty Name="Browser" ColumnName="Browser" />
+                <ScalarProperty Name="SubmitIP" ColumnName="SubmitIP" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductGroups">
+            <EntityTypeMapping TypeName="VaranegarModel.ProductGroups">
+              <MappingFragment StoreEntitySet="ProductGroups">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="En_ProductGroupDesc_Draft" ColumnName="En_ProductGroupDesc_Draft" />
+                <ScalarProperty Name="ProductGroupDesc_Draft" ColumnName="ProductGroupDesc_Draft" />
+                <ScalarProperty Name="IsDraft" ColumnName="IsDraft" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="fk_ProductGroupID" ColumnName="fk_ProductGroupID" />
+                <ScalarProperty Name="En_ProductGroupSummery" ColumnName="En_ProductGroupSummery" />
+                <ScalarProperty Name="ProductGroupSummery" ColumnName="ProductGroupSummery" />
+                <ScalarProperty Name="En_ProductGroupTitle" ColumnName="En_ProductGroupTitle" />
+                <ScalarProperty Name="En_ProductGroupDesc" ColumnName="En_ProductGroupDesc" />
+                <ScalarProperty Name="ProductGroupDesc" ColumnName="ProductGroupDesc" />
+                <ScalarProperty Name="ProductGroupImage" ColumnName="ProductGroupImage" />
+                <ScalarProperty Name="ProductGroupName" ColumnName="ProductGroupName" />
+                <ScalarProperty Name="ProductGroupTitle" ColumnName="ProductGroupTitle" />
+                <ScalarProperty Name="ProductGroupID" ColumnName="ProductGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="VaranegarModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ProductImage_Thumb" ColumnName="ProductImage_Thumb" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="submitDate" ColumnName="submitDate" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="fk_ProductGroupID" ColumnName="fk_ProductGroupID" />
+                <ScalarProperty Name="ProductImage" ColumnName="ProductImage" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="En_ProductDesc" ColumnName="En_ProductDesc" />
+                <ScalarProperty Name="ProductDesc" ColumnName="ProductDesc" />
+                <ScalarProperty Name="En_ProductSumery" ColumnName="En_ProductSumery" />
+                <ScalarProperty Name="ProductSumery" ColumnName="ProductSumery" />
+                <ScalarProperty Name="En_ProductTitle" ColumnName="En_ProductTitle" />
+                <ScalarProperty Name="ProductTitle" ColumnName="ProductTitle" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Province">
+            <EntityTypeMapping TypeName="VaranegarModel.Province">
+              <MappingFragment StoreEntitySet="Province">
+                <ScalarProperty Name="China_ProvinceName" ColumnName="China_ProvinceName" />
+                <ScalarProperty Name="Rus_ProvinceName" ColumnName="Rus_ProvinceName" />
+                <ScalarProperty Name="EN_ProvinceName" ColumnName="EN_ProvinceName" />
+                <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
+                <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rel_Customer_Province">
+            <EntityTypeMapping TypeName="VaranegarModel.Rel_Customer_Province">
+              <MappingFragment StoreEntitySet="Rel_Customer_Province">
+                <ScalarProperty Name="fk_CustomerID" ColumnName="fk_CustomerID" />
+                <ScalarProperty Name="fk_ProvinceID" ColumnName="fk_ProvinceID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rel_Solutions_Customers">
+            <EntityTypeMapping TypeName="VaranegarModel.Rel_Solutions_Customers">
+              <MappingFragment StoreEntitySet="Rel_Solutions_Customers">
+                <ScalarProperty Name="fk_CustomerID" ColumnName="fk_CustomerID" />
+                <ScalarProperty Name="fk_SolutionID" ColumnName="fk_SolutionID" />
+                <ScalarProperty Name="SolutionCustomerID" ColumnName="SolutionCustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resumes">
+            <EntityTypeMapping TypeName="VaranegarModel.Resumes">
+              <MappingFragment StoreEntitySet="Resumes">
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="submitIP" ColumnName="submitIP" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="resumeFile" ColumnName="resumeFile" />
+                <ScalarProperty Name="resumeid" ColumnName="resumeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="VaranegarModel.Roles">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleTitle" ColumnName="RoleTitle" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Services">
+            <EntityTypeMapping TypeName="VaranegarModel.Services">
+              <MappingFragment StoreEntitySet="Services">
+                <ScalarProperty Name="En_SmallDesc" ColumnName="En_SmallDesc" />
+                <ScalarProperty Name="SmallDesc" ColumnName="SmallDesc" />
+                <ScalarProperty Name="HeaderImg" ColumnName="HeaderImg" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="En_ServiceDesc" ColumnName="En_ServiceDesc" />
+                <ScalarProperty Name="ServiceDesc" ColumnName="ServiceDesc" />
+                <ScalarProperty Name="ServiceName" ColumnName="ServiceName" />
+                <ScalarProperty Name="En_ServiceTitle" ColumnName="En_ServiceTitle" />
+                <ScalarProperty Name="ServiceTitle" ColumnName="ServiceTitle" />
+                <ScalarProperty Name="ServiceID" ColumnName="ServiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceStepItems">
+            <EntityTypeMapping TypeName="VaranegarModel.ServiceStepItems">
+              <MappingFragment StoreEntitySet="ServiceStepItems">
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="fk_ServiceStepID" ColumnName="fk_ServiceStepID" />
+                <ScalarProperty Name="En_ServiceStepItemTitle" ColumnName="En_ServiceStepItemTitle" />
+                <ScalarProperty Name="ServiceStepItemTitle" ColumnName="ServiceStepItemTitle" />
+                <ScalarProperty Name="ServiceStepItemID" ColumnName="ServiceStepItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ServiceSteps">
+            <EntityTypeMapping TypeName="VaranegarModel.ServiceSteps">
+              <MappingFragment StoreEntitySet="ServiceSteps">
+                <ScalarProperty Name="En_SmallDesc" ColumnName="En_SmallDesc" />
+                <ScalarProperty Name="SmallDesc" ColumnName="SmallDesc" />
+                <ScalarProperty Name="ServiceStepName" ColumnName="ServiceStepName" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="En_ServiceStepDesc" ColumnName="En_ServiceStepDesc" />
+                <ScalarProperty Name="ServiceStepDesc" ColumnName="ServiceStepDesc" />
+                <ScalarProperty Name="ServiceStepImage" ColumnName="ServiceStepImage" />
+                <ScalarProperty Name="fk_ServiceID" ColumnName="fk_ServiceID" />
+                <ScalarProperty Name="En_ServiceStepTitle" ColumnName="En_ServiceStepTitle" />
+                <ScalarProperty Name="ServiceStepTitle" ColumnName="ServiceStepTitle" />
+                <ScalarProperty Name="ServiceStepID" ColumnName="ServiceStepID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sliders">
+            <EntityTypeMapping TypeName="VaranegarModel.Sliders">
+              <MappingFragment StoreEntitySet="Sliders">
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="SliderImageUrl" ColumnName="SliderImageUrl" />
+                <ScalarProperty Name="LinkAddress" ColumnName="LinkAddress" />
+                <ScalarProperty Name="LinkText" ColumnName="LinkText" />
+                <ScalarProperty Name="BigText" ColumnName="BigText" />
+                <ScalarProperty Name="SmallText" ColumnName="SmallText" />
+                <ScalarProperty Name="SliderTitle" ColumnName="SliderTitle" />
+                <ScalarProperty Name="SliderID" ColumnName="SliderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SolutionGroups">
+            <EntityTypeMapping TypeName="VaranegarModel.SolutionGroups">
+              <MappingFragment StoreEntitySet="SolutionGroups">
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="SolutionGroupName" ColumnName="SolutionGroupName" />
+                <ScalarProperty Name="En_SolutionGroupTitle" ColumnName="En_SolutionGroupTitle" />
+                <ScalarProperty Name="SolutionGroupTitle" ColumnName="SolutionGroupTitle" />
+                <ScalarProperty Name="SolutionGroupID" ColumnName="SolutionGroupID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solutions">
+            <EntityTypeMapping TypeName="VaranegarModel.Solutions">
+              <MappingFragment StoreEntitySet="Solutions">
+                <ScalarProperty Name="ProductInSupply" ColumnName="ProductInSupply" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="En_ProblemDesc" ColumnName="En_ProblemDesc" />
+                <ScalarProperty Name="ProblemDesc" ColumnName="ProblemDesc" />
+                <ScalarProperty Name="En_BannerText" ColumnName="En_BannerText" />
+                <ScalarProperty Name="BannerText" ColumnName="BannerText" />
+                <ScalarProperty Name="ImgBannerFile" ColumnName="ImgBannerFile" />
+                <ScalarProperty Name="SolutionName" ColumnName="SolutionName" />
+                <ScalarProperty Name="En_SolutionTitle" ColumnName="En_SolutionTitle" />
+                <ScalarProperty Name="SolutionTitle" ColumnName="SolutionTitle" />
+                <ScalarProperty Name="fk_SolutionGroupID" ColumnName="fk_SolutionGroupID" />
+                <ScalarProperty Name="SolutionID" ColumnName="SolutionID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Texts">
+            <EntityTypeMapping TypeName="VaranegarModel.Texts">
+              <MappingFragment StoreEntitySet="Texts">
+                <ScalarProperty Name="groupid" ColumnName="groupid" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+                <ScalarProperty Name="SubmitDate" ColumnName="SubmitDate" />
+                <ScalarProperty Name="En_TextBody" ColumnName="En_TextBody" />
+                <ScalarProperty Name="En_TextTitle" ColumnName="En_TextTitle" />
+                <ScalarProperty Name="TextBody" ColumnName="TextBody" />
+                <ScalarProperty Name="TextTitle" ColumnName="TextTitle" />
+                <ScalarProperty Name="TextID" ColumnName="TextID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="VaranegarModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="RegisterIP" ColumnName="RegisterIP" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="fk_RoleID" ColumnName="fk_RoleID" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="LastFamily" ColumnName="LastFamily" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SeminarRequests">
+            <EntityTypeMapping TypeName="VaranegarModel.SeminarRequests">
+              <MappingFragment StoreEntitySet="SeminarRequests">
+                <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Os" ColumnName="Os" />
+                <ScalarProperty Name="Ip" ColumnName="Ip" />
+                <ScalarProperty Name="Browser" ColumnName="Browser" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="NationalId" ColumnName="NationalId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="RequestID" ColumnName="RequestID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

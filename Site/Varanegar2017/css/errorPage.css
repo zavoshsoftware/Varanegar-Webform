@@ -1,0 +1,72 @@
+﻿body {
+}
+.no-content-box {
+	width:814px;
+	height:514px;
+	background-image: url('../images/404-contentbg.png');
+	background-repeat: no-repeat;
+	text-align: center;
+	margin:55px auto 60px;
+	padding:30px;
+}
+
+.no-content-box h2 {
+	color:#2f4497;
+	margin-bottom: 20px;
+}
+
+.no-content-box  h3 {
+	font-size:35px;
+	color:#807e78;
+	margin-bottom: 23px;
+}
+
+.no-content-box  p {
+	line-height: 34px;
+	color:#9c978d;
+	margin-bottom: 36px;
+}
+
+.no-content-box form input {
+	background-color: #f7f5f2;
+	border-color:#e2e1d9;
+	color:#8b8475;
+	box-shadow:inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.no-content-box .submit-btn{
+	background-position: -299px -536px;
+}
+
+.no-content-box form input:-moz-placeholder {
+	color:#8b8475;
+	text-transform: uppercase;
+}
+
+.no-content-box form input::-moz-placeholder {
+	color:#8b8475;
+	text-transform: uppercase;
+}
+
+.no-content-box form input:-ms-input-placeholder {
+	color:#8b8475;
+	text-transform: uppercase;
+}
+
+.no-content-box form input::-webkit-input-placeholder {
+	color:#8b8475;
+	text-transform: uppercase;
+}
+.vcenter h2,.vcenter h3 {
+    text-align: center !important;
+    direction: rtl;
+}
+.notfoundpageLinks a {
+    float: right !important;
+    margin-left: 4px;
+}
+
+.notfoundpageLinks {
+    text-align: center !important;
+    
+}

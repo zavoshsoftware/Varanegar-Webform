@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f201e052e3d349a3ae2519153af506b3" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="VaranegarModel.AgentPreviousJobs" Width="1.5" PointX="20" PointY="16.875" />
+        <EntityTypeShape EntityType="VaranegarModel.AgentQuestionaries" Width="1.5" PointX="17.75" PointY="14.25" />
+        <EntityTypeShape EntityType="VaranegarModel.BlogComments" Width="1.5" PointX="22.25" PointY="1.625" />
+        <EntityTypeShape EntityType="VaranegarModel.BlogGroups" Width="1.5" PointX="17.75" PointY="1.875" />
+        <EntityTypeShape EntityType="VaranegarModel.Blogs" Width="1.5" PointX="20" PointY="1" />
+        <EntityTypeShape EntityType="VaranegarModel.CareerForm" Width="1.5" PointX="7.75" PointY="16.75" />
+        <EntityTypeShape EntityType="VaranegarModel.City" Width="1.5" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="VaranegarModel.ContactUsForm" Width="1.5" PointX="8" PointY="9.875" />
+        <EntityTypeShape EntityType="VaranegarModel.ContactUsFormRecievers" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="VaranegarModel.CustomerGroups" Width="1.5" PointX="10.75" PointY="2.625" />
+        <EntityTypeShape EntityType="VaranegarModel.Customers" Width="1.5" PointX="13" PointY="1.125" />
+        <EntityTypeShape EntityType="VaranegarModel.DemoRequests" Width="1.5" PointX="8" PointY="3.75" />
+        <EntityTypeShape EntityType="VaranegarModel.EmailRecieverRoles" Width="1.5" PointX="5.75" PointY="6" />
+        <EntityTypeShape EntityType="VaranegarModel.Emails" Width="1.5" PointX="8" PointY="13.75" />
+        <EntityTypeShape EntityType="VaranegarModel.FamiliarMethods" Width="1.5" PointX="5.75" PointY="2.25" />
+        <EntityTypeShape EntityType="VaranegarModel.GalleryGroups" Width="1.5" PointX="15.75" PointY="9.125" />
+        <EntityTypeShape EntityType="VaranegarModel.GalleryImages" Width="1.5" PointX="18" PointY="9" />
+        <EntityTypeShape EntityType="VaranegarModel.ImageGroups" Width="1.5" PointX="13" PointY="17.875" />
+        <EntityTypeShape EntityType="VaranegarModel.Images" Width="1.5" PointX="15.25" PointY="13.375" />
+        <EntityTypeShape EntityType="VaranegarModel.Log_Errors" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="VaranegarModel.Log_SearchQueries" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="VaranegarModel.Managers" Width="1.5" PointX="9.75" PointY="16.75" />
+        <EntityTypeShape EntityType="VaranegarModel.NewsLetters" Width="1.5" PointX="20.75" PointY="6.75" />
+        <EntityTypeShape EntityType="VaranegarModel.ProductGroups" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="VaranegarModel.Products" Width="1.5" PointX="3" PointY="1.5" />
+        <EntityTypeShape EntityType="VaranegarModel.Province" Width="1.5" PointX="0.75" PointY="10.125" />
+        <EntityTypeShape EntityType="VaranegarModel.Rel_Customer_Province" Width="1.5" PointX="15.25" PointY="5.625" />
+        <EntityTypeShape EntityType="VaranegarModel.Rel_Solutions_Customers" Width="1.5" PointX="15.25" PointY="2.875" />
+        <EntityTypeShape EntityType="VaranegarModel.Resumes" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="VaranegarModel.Roles" Width="1.5" PointX="10.75" PointY="14" />
+        <EntityTypeShape EntityType="VaranegarModel.Services" Width="1.5" PointX="0.75" PointY="17.25" />
+        <EntityTypeShape EntityType="VaranegarModel.ServiceStepItems" Width="1.5" PointX="5.25" PointY="17.75" />
+        <EntityTypeShape EntityType="VaranegarModel.ServiceSteps" Width="1.5" PointX="3" PointY="17" />
+        <EntityTypeShape EntityType="VaranegarModel.Sliders" Width="1.5" PointX="20.75" PointY="10.75" />
+        <EntityTypeShape EntityType="VaranegarModel.SolutionGroups" Width="1.5" PointX="4.75" PointY="13.75" />
+        <EntityTypeShape EntityType="VaranegarModel.Solutions" Width="1.5" PointX="13" PointY="7.875" />
+        <EntityTypeShape EntityType="VaranegarModel.Texts" Width="1.5" PointX="11.75" PointY="20.75" />
+        <EntityTypeShape EntityType="VaranegarModel.Users" Width="1.5" PointX="13" PointY="13" />
+        <AssociationConnector Association="VaranegarModel.FK_AgentPreviousJobs_AgentQuestionaries" />
+        <AssociationConnector Association="VaranegarModel.FK_BlogComments_Blogs" />
+        <AssociationConnector Association="VaranegarModel.FK_Blogs_BlogGroups" />
+        <AssociationConnector Association="VaranegarModel.FK_City_Province" />
+        <AssociationConnector Association="VaranegarModel.FK_ContactUsForm_EmailRecieverRoles" />
+        <AssociationConnector Association="VaranegarModel.FK_Customers_CustomerGroups" />
+        <AssociationConnector Association="VaranegarModel.FK_Rel_Customer_Province_Customers" />
+        <AssociationConnector Association="VaranegarModel.FK_Rel_Solutions_Customers_Customers" />
+        <AssociationConnector Association="VaranegarModel.FK_DemoRequests_EmailRecieverRoles" />
+        <AssociationConnector Association="VaranegarModel.FK_DemoRequests_FamiliarMethods" />
+        <AssociationConnector Association="VaranegarModel.FK_Emails_EmailRecieverRoles" />
+        <AssociationConnector Association="VaranegarModel.FK_GalleryImages_GalleryGroups" />
+        <AssociationConnector Association="VaranegarModel.FK_Images_ImageGroups" />
+        <AssociationConnector Association="VaranegarModel.FK_Images_Users" />
+        <AssociationConnector Association="VaranegarModel.FK_ProductGroups_ProductGroups" />
+        <AssociationConnector Association="VaranegarModel.FK_Products_ProductGroups" />
+        <AssociationConnector Association="VaranegarModel.FK_Rel_Solutions_Customers_Solutions" />
+        <AssociationConnector Association="VaranegarModel.FK_Users_Roles" />
+        <AssociationConnector Association="VaranegarModel.FK_ServiceSteps_Services" />
+        <AssociationConnector Association="VaranegarModel.FK_ServiceStepItems_ServiceSteps" />
+        <EntityTypeShape EntityType="VaranegarModel.SeminarRequests" Width="1.5" PointX="14.375" PointY="20.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
